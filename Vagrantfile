@@ -39,6 +39,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
                     'Whitelist'	=> {
                         'Ports' => [80]
                     }
+                },
+                'NodeJs' => {
+                    'version' => '6.9.1'
                 }
             }
         end
