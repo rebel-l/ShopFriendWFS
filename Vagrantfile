@@ -26,10 +26,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
         # Chef Configuration
         shopfriend.vm.provision "chef_solo" do |chef|
-            chef.cookbooks_path = "./bower_components/rebel-l-sisa/cookbooks"
-            chef.roles_path = "./bower_components/rebel-l-sisa/roles"
-            chef.environments_path = "./bower_components/rebel-l-sisa/environments"
-            chef.data_bags_path = "./bower_components/rebel-l-sisa/data_bags"
+            chef.cookbooks_path = "./node_modules/rebel-l-sisa/cookbooks"
+            chef.roles_path = "./node_modules/rebel-l-sisa/roles"
+            chef.environments_path = "./node_modules/rebel-l-sisa/environments"
+            chef.data_bags_path = "./node_modules/rebel-l-sisa/data_bags"
             chef.add_role "Default"
             chef.environment = "development"
             chef.add_recipe "NodeJs"

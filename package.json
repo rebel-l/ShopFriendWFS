@@ -1,0 +1,15 @@
+{
+  "name": "rebel-l-shop-friend-wfs",
+  "version": "0.1.0",
+  "description": "This application helps friends on shopping.",
+  "main": "index.js",
+  "repository": {
+    "url": "https://github.com/rebel-l/ShopFriendWFS.git",
+    "type": "git"
+  },
+  "author": "Rebel-L <dj@rebel-l.net>",
+  "license": "GPL-3.0",
+  "devDependencies": {
+    "rebel-l-sisa": "^1.7.0"
+  }
+}
