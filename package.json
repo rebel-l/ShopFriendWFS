@@ -10,6 +10,9 @@
   "author": "Rebel-L <dj@rebel-l.net>",
   "license": "GPL-3.0",
   "devDependencies": {
+    "rebel-l-sisa": "^1.8.0"
+  },
+  "dependencies": {
     "rebel-l-sisa": "^1.7.0"
   }
 }
