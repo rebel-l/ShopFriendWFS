@@ -35,12 +35,15 @@ sudo apt-get -y install docker-ce docker-ce-cli containerd.io
 echo "INSTALL NGINX"
 sudo apt-get -y install nginx
 
-#        sudo cp /vagrant/etc/nginx/proxy/ssl/certs/* /etc/ssl/certs/
-#        sudo cp /vagrant/etc/nginx/proxy/ssl/private/* /etc/ssl/private/
-#        sudo cp /vagrant/etc/nginx/proxy/dhparam.pem /etc/nginx/
-#        sudo cp /vagrant/etc/nginx/proxy/snippets/* /etc/nginx/snippets/
-#        sudo cp /vagrant/etc/nginx/proxy/default /etc/nginx/sites-available/
-#        sudo mkdir -p /var/www/proxy
-#        sudo cp /vagrant/etc/nginx/proxy/html/* /var/www/proxy/
+sudo cp -r $VM_PATH/etc/* /etc
+if [ -f /etc/nginx/sites-enabled/default ]
+then
+  sudo rm /etc/nginx/sites-enabled/default
+fi
+
+if [ ! -f /etc/nginx/sites-enabled/shopfriend-ssl.de ]
+then
+  sudo ln -s /etc/nginx/sites-available/shopfriend-ssl.de /etc/nginx/sites-enabled/
+fi
 
 sudo systemctl reload nginx
