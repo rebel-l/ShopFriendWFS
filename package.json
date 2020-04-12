@@ -1,0 +1,26 @@
+{
+  "name": "shop-friend-webapp",
+  "version": "0.1.0",
+  "description": "This web app helps people to share their shopping lists and ask one person to deliver the requested products",
+  "author": "Lars Gaubisch <dj@rebel-l.net>",
+  "license": "GPL-3.0",
+  "private": true,
+  "dependencies": {
+    "react": "^16.13.0",
+    "react-dom": "^16.13.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.8.7",
+    "@babel/preset-env": "^7.8.7",
+    "@babel/preset-react": "^7.8.3",
+    "babel-loader": "^8.0.6",
+    "html-loader": "^0.5.5",
+    "html-webpack-plugin": "^3.2.0",
+    "webpack": "^4.42.0",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.10.3"
+  },
+  "scripts": {
+    "build": "webpack --mode production"
+  }
+}
