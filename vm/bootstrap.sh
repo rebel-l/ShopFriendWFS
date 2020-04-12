@@ -11,10 +11,17 @@ sudo apt-get update
 sudo apt-get -y upgrade
 
 # setup home directory
+echo "SETUP HOME DIRECTORY"
 cp $VM_PATH/$HOME_PATH/.bashrc $HOME_PATH/
 chown $USER:$USER $HOME_PATH/.bashrc
 cp $VM_PATH/$HOME_PATH/.profile $HOME_PATH/
 chown $USER:$USER $HOME_PATH/.profile
+
+# upgrade git
+echo "UPGRADE GIT"
+sudo add-apt-repository ppa:git-core/ppa
+sudo apt-get update
+sudo apt-get -y install git
 
 # install docker
 echo "INSTALL DOCKER"
