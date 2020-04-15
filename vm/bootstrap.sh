@@ -34,10 +34,10 @@ sudo apt-get -y install docker-ce docker-ce-cli containerd.io
 # generate ssl certificate
 openssl rand -base64 48 > $HOME_PATH/passphrase.txt
 openssl genrsa -aes128 -passout file:$HOME_PATH/passphrase.txt -out /etc/ssl/private/shopfriend.test.key 2048
-openssl req -new -passin file:$HOME_PATH/passphrase.txt -key /etc/ssl/private/shopfriend.test.key -out $HOME_PATH/shopfriend.testerver.csr -subj "/C=DE/O=ShopFriend/OU=Domain Control Validated/CN=*.shopfriend.test"
+openssl req -new -passin file:$HOME_PATH/passphrase.txt -key /etc/ssl/private/shopfriend.test.key -out $HOME_PATH/shopfriend.test.csr -subj "/C=DE/O=ShopFriend/OU=Domain Control Validated/CN=*.shopfriend.test"
 cp /etc/ssl/private/shopfriend.test.key /etc/ssl/private/shopfriend.test.key.org
 openssl rsa -in /etc/ssl/private/shopfriend.test.key.org -passin file:$HOME_PATH/passphrase.txt -out /etc/ssl/private/shopfriend.test.key
-openssl x509 -req -days 36500 -in $HOME_PATH/shopfriend.testerver.csr -signkey /etc/ssl/private/shopfriend.test.key -out /etc/ssl/certs/shopfriend.test.crt
+openssl x509 -req -days 36500 -in $HOME_PATH/shopfriend.test.csr -signkey /etc/ssl/private/shopfriend.test.key -out /etc/ssl/certs/shopfriend.test.crt
 
 # install nginx
 echo "INSTALL NGINX"
