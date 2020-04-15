@@ -4,7 +4,7 @@
 server {
     listen 443 ssl;
     listen [::]:443 ssl;
-    include snippets/selfsigned-certificate.conf;
+    include snippets/shopfriend.test-certificate.conf;
     include snippets/ssl-params.conf;
 
     server_name www.shopfriend.test;
