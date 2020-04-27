@@ -27,6 +27,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         www.shopfriend.test
         assets.shopfriend.test
         images.shopfriend.test
+        auth.shopfriend.test
     )
 
     config.vm.provision "shell", inline: <<-SHELL
