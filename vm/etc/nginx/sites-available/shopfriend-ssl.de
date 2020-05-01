@@ -49,3 +49,25 @@ server {
     error_log /var/log/nginx/shopfriend-ssl.test_error.log "error";
     access_log /var/log/nginx/shopfriend-ssl.test_access.log;
 }
+
+#
+# Auth Service
+#
+server {
+    listen 443 ssl;
+    listen [::]:443 ssl;
+    include snippets/shopfriend.test-certificate.conf;
+    include snippets/ssl-params.conf;
+
+    server_name auth.shopfriend.test;
+
+    # Avoid trailing slashes
+    include snippets/trailingslash.conf;
+
+    location / {
+        proxy_pass http://localhost:3000/;
+    }
+
+    error_log /var/log/nginx/shopfriend-ssl.test_error.log "error";
+    access_log /var/log/nginx/shopfriend-ssl.test_access.log;
+}
