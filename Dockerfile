@@ -1,5 +1,5 @@
 # Builder
-FROM node:13
+FROM node:14
 WORKDIR /usr/src/app
 COPY . .
 RUN npm install
