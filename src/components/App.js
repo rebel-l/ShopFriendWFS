@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import AjaxButton from "./AjaxButton";
 
 class App extends Component {
     render() {
@@ -6,6 +7,7 @@ class App extends Component {
             <div>
                 <h1>Hello World</h1>
                 <p>Have fun playing around</p>
+                <AjaxButton />
             </div>
         );
     }
