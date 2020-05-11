@@ -1,12 +1,7 @@
 #!/bin/bash
 
-. ./scripts/tools/config.sh
+# start backend
+./backend/restart.sh
 
-for i in "${DEPENDENCIES[@]}";
-do
-  cd $i
-  ./scripts/tools/restartService.sh
-  cd ..
-done
-
-cd $ACTUAL_PATH || exit 1
+# start frontend
+./container/restart.sh
