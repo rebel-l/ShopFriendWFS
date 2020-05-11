@@ -1,9 +1,20 @@
 import React, { Component } from 'react';
 import { FacebookProvider, LoginButton } from 'react-facebook';
+import axios from "axios";
 
 class Facebook extends Component {
     handleResponse(response) {
         console.log(response);
+        let data = {
+            'accessToken': response.tokenDetail.accessToken
+        }
+        axios.put('https://auth.shopfriend.test/public/facebook/login', data)
+            .then(function (response) {
+                console.log(response);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
     }
 
     handleError (error) {
