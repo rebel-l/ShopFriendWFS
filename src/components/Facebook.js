@@ -6,7 +6,7 @@ class Facebook extends Component {
     handleResponse(response) {
         console.log(response);
         let data = {
-            'accessToken': response.tokenDetail.accessToken
+            'AccessToken': response.tokenDetail.accessToken
         }
         axios.put('https://auth.shopfriend.test/public/facebook/login', data)
             .then(function (response) {
