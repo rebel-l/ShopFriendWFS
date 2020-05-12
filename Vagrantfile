@@ -33,5 +33,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     config.vm.provision "shell", inline: <<-SHELL
         cd /vagrant
         ./vm/bootstrap.sh
+        ./scripts/tools/restart.sh
     SHELL
 end
