@@ -2,13 +2,18 @@
 
 BRANCH=`git rev-parse --abbrev-ref HEAD | sed -r 's/\/+/-/g'`
 
+echo
+echo "Restart ShopFriend WebApp ..."
+echo "Branch: $BRANCH"
+echo
+
 # stop
-sudo docker stop shopfriend
-sudo docker rm shopfriend
+docker stop shopfriend
+docker rm shopfriend
 
 # build
-sudo docker build -t rebel1l/shopfriend:$BRANCH .
+docker build -t rebel1l/shopfriend:$BRANCH .
 
 # start
-sudo docker run --name shopfriend -d -it -p 8080:80 rebel1l/shopfriend:$BRANCH
-sudo docker ps
+docker run --name shopfriend -d -it -p 8080:80 rebel1l/shopfriend:$BRANCH
+docker ps
