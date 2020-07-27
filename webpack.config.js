@@ -1,4 +1,5 @@
-const HtmlWebPackPlugin = require("html-webpack-plugin");
+const HtmlWebPackPlugin = require('html-webpack-plugin');
+const WebpackPwaManifest = require('webpack-pwa-manifest');
 
 module.exports = {
     devServer: {
@@ -28,6 +29,19 @@ module.exports = {
         new HtmlWebPackPlugin({
             template: "./src/index.html",
             filename: "./index.html"
+        }),
+        new WebpackPwaManifest({
+            name: 'Shop for Friends',
+            short_name: 'ShopFriend',
+            description: 'Go shopping for your friends!',
+            background_color: '#ffffff',
+            icons: [
+                {
+                    src: './src/assets/icon.png',
+                    sizes: [96, 128, 192, 256, 384, 512]
+                },
+            ]
         })
+
     ]
 };
