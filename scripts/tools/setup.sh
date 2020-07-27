@@ -1,6 +1,6 @@
 #!/bin/bash
 
-. ./scripts/tools/config.sh
+. ./backend/config.sh
 
 for i in "${DEPENDENCIES[@]}";
 do
