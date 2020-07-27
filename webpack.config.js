@@ -40,8 +40,13 @@ module.exports = {
                     src: './src/assets/icon.png',
                     sizes: [96, 128, 192, 256, 384, 512]
                 },
-            ]
-        })
-
+                {
+                    src: './src/assets/icon.png',
+                    size: '1024x1024',
+                    purpose: 'maskable'
+                }
+            ],
+            ios: true
+        }),
     ]
 };
