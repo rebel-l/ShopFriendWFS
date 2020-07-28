@@ -2,8 +2,8 @@
 # Static Public
 #
 server {
-    listen 443 ssl;
-    listen [::]:443 ssl;
+    listen 443 ssl http2;
+    listen [::]:443 ssl http2;
     include snippets/shopfriend.test-certificate.conf;
     include snippets/ssl-params.conf;
 
@@ -24,8 +24,8 @@ server {
 # HTTP to HTTPS redirect
 #
 server {
-    listen 80;
-    listen [::]:80;
+    listen 80 http2;
+    listen [::]:80 http2;
 
     server_name www.shopfriend.test;
 
@@ -39,10 +39,10 @@ server {
 # non-www to www redirect
 #
 server {
-    listen 80;
-    listen [::]:80;
-    listen 443 ssl;
-    listen [::]:443 ssl;
+    listen 80 http2;
+    listen [::]:80 http2;
+    listen 443 ssl http2;
+    listen [::]:443 ssl http2;
 
     server_name shopfriend.test;
     return 301 https://www.$server_name$request_uri;
@@ -54,8 +54,8 @@ server {
 # Auth Service
 #
 server {
-    listen 443 ssl;
-    listen [::]:443 ssl;
+    listen 443 ssl http2;
+    listen [::]:443 ssl http2;
     include snippets/shopfriend.test-certificate.conf;
     include snippets/ssl-params.conf;
 
