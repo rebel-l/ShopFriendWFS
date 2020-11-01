@@ -1,4 +1,6 @@
 .idea
 .vagrant
 
+dist
+
 node_modules
