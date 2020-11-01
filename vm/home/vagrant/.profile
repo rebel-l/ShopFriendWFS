@@ -36,6 +36,11 @@ alias dfh='df -h'
 alias duh='du -h'
 
 #############################
+# docker
+#############################
+alias dclean='docker system prune --all'
+
+#############################
 # Profile
 #############################
 alias viprof='vim ~/.profile'
