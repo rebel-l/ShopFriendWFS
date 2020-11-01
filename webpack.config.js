@@ -2,10 +2,6 @@ const HtmlWebPackPlugin = require('html-webpack-plugin');
 const WebpackPwaManifest = require('webpack-pwa-manifest');
 
 module.exports = {
-    devServer: {
-        host: '0.0.0.0',
-        port: 8080
-    },
     module: {
         rules: [
             {
