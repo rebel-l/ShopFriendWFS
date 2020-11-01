@@ -44,7 +44,8 @@ module.exports = {
                     purpose: 'maskable'
                 }
             ],
-            ios: true
+            ios: true,
+            publicPath: '.'
         }),
     ]
 };
