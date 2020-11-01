@@ -1,0 +1,19 @@
+#
+# Default
+#
+server {
+    listen 80 default_server;
+    listen [::]:80 default_server;
+
+    server_name _;
+
+    # Avoid trailing slashes
+    include snippets/trailingslash.conf;
+
+    location / {
+        proxy_pass http://localhost:8080/;
+    }
+
+    error_log /var/log/nginx/shopfriend.test_error.log "error";
+    access_log  /var/log/nginx/shopfriend.test_access.log;
+}
