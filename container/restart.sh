@@ -1,6 +1,6 @@
 #!/bin/bash
 
-BRANCH=`git rev-parse --abbrev-ref HEAD | sed -r 's/\/+/-/g'`
+BRANCH=$(git rev-parse --abbrev-ref HEAD | sed -r 's/\/+/-/g')
 
 echo
 echo "Restart ShopFriend WebApp ..."
@@ -15,5 +15,5 @@ docker rm shopfriend
 docker build -t rebel1l/shopfriend:$BRANCH .
 
 # start
-docker run --name shopfriend -d -it -p 8080:80 rebel1l/shopfriend:$BRANCH
+docker run --name shopfriend -e NODE_ENV=dev -d -it -p 8080:80 rebel1l/shopfriend:$BRANCH
 docker ps
