@@ -23,6 +23,7 @@
     "webpack-pwa-manifest": "^4.2.0"
   },
   "scripts": {
-    "build": "npx webpack --progress --color --mode production"
+    "build": "npx webpack --progress --color --mode production",
+    "build-dev": "npx webpack --progress --color --mode=development"
   }
 }
