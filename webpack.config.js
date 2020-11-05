@@ -18,6 +18,17 @@ module.exports = {
                         loader: 'html-loader'
                     }
                 ]
+            },
+            {
+                test: /\.s([ac])ss$/,
+                use: [
+                    'style-loader',
+                    {
+                        loader: 'css-loader',
+                        options: { modules: true }
+                    },
+                    'sass-loader'
+                ]
             }
         ]
     },

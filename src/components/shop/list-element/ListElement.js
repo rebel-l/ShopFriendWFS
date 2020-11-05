@@ -1,5 +1,6 @@
 'use strict';
 
+import styles from './ListElement.scss';
 import React, { Component } from 'react';
 
 const cancelTimeout = 10000;
@@ -43,8 +44,8 @@ class ListElement extends Component {
 
     render() {
         return (
-            <div>
-                <div onClick={this.handleClick}>ELEMENT</div>
+            <div className={styles.listElementOuter}>
+                <div className={styles.listElement} onClick={this.handleClick}>ELEMENT</div>
             </div>
         );
     }
