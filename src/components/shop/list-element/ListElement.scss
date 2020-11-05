@@ -10,3 +10,8 @@
   color: red;
   background-color: #0e0e0e;
 }
+
+.listElementInnerInactive {
+  composes: listElementInner;
+  text-decoration: line-through blue;
+}

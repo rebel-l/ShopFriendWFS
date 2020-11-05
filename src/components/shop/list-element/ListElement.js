@@ -15,7 +15,8 @@ class ListElement extends Component {
 
         // init state
         this.state = {
-            progress: 0 + '%'
+            progress: 0 + '%',
+            active: true
         }
 
         // register event handler
@@ -23,7 +24,8 @@ class ListElement extends Component {
     }
 
     handleClick(){
-        if(this.timer === null) {
+        if(this.isActive() && this.timer === null) {
+            this.deactivate();
             let iterations = cancelTimeout / progressInterval;
             let step = 100 / iterations;
             let counter = 0;
@@ -40,6 +42,7 @@ class ListElement extends Component {
                 }
             }, progressInterval);
         } else {
+            this.activate();
             console.log('action canceled');
             this.resetTimer();
         }
@@ -55,10 +58,23 @@ class ListElement extends Component {
         this.setState({progress: value + '%'});
     }
 
+    activate(){
+        this.setState({active: true});
+    }
+
+    deactivate(){
+        this.setState({active: false});
+    }
+
+    isActive(){
+        return this.state.active;
+    }
+
     render() {
         return (
             <div className={styles.listElementOuter} onClick={this.handleClick}>
-                <div className={styles.listElementInner} style={{width: this.state.progress}}>ELEMENT</div>
+                <div className={`${this.state.active ? styles.listElementInner : styles.listElementInnerInactive}`}
+                     style={{width: this.state.progress}}>ELEMENT</div>
             </div>
         );
     }
