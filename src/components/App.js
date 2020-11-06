@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Facebook from "./Facebook";
-import ListElement from "./shop/list-element/ListElement";
+import List from "./shop/list/List";
 
 class App extends Component {
     render() {
@@ -9,7 +9,7 @@ class App extends Component {
                 <h1>Hello World</h1>
                 <p>Have fun playing around</p>
                 <Facebook />
-                <ListElement />
+                <List />
             </div>
         );
     }

@@ -1,7 +1,7 @@
 'use strict';
 
-import styles from './ListElement.scss';
 import React, { Component } from 'react';
+import styles from './ListElement.scss';
 
 const cancelTimeout = 2000; // ms
 const progressInterval = 10; // ms
@@ -11,6 +11,7 @@ class ListElement extends Component {
         super(props);
 
         // init attributes
+        this.name = props.name;
         this.timer = null;
 
         // init state
@@ -74,7 +75,7 @@ class ListElement extends Component {
         return (
             <div className={styles.listElementOuter} onClick={this.handleClick}>
                 <div className={`${this.state.active ? styles.listElementInner : styles.listElementInnerInactive}`}
-                     style={{width: this.state.progress}}>ELEMENT</div>
+                     style={{width: this.state.progress}}>{this.name}</div>
             </div>
         );
     }
