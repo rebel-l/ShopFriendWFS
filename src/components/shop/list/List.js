@@ -2,7 +2,7 @@
 
 import React, { Component } from "react";
 import styles from "./List.scss";
-import ListElement from "./../list-element/ListElement";
+import ListItem from "../list-element/ListItem";
 
 class List extends Component {
     constructor(props) {
@@ -11,8 +11,8 @@ class List extends Component {
 
     render() {
         let elements = [];
-        elements.push(<ListElement name={"Spinat"} />);
-        elements.push(<ListElement name={"Apfel"} />);
+        elements.push(<ListItem name={"Spinat"} />);
+        elements.push(<ListItem name={"Apfel"} />);
 
         return (
             <div className={styles.list}>

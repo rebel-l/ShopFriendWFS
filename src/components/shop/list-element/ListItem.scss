@@ -1,4 +1,4 @@
-.listElementOuter {
+.listItemOuter {
   border-color: #000;
   border-style: solid;
   border-width: 1px;
@@ -6,12 +6,12 @@
   width: 100%;
 }
 
-.listElementInner {
+.listItemInner {
   color: red;
   background-color: #0e0e0e;
 }
 
-.listElementInnerInactive {
-  composes: listElementInner;
+.listItemInnerInactive {
+  composes: listItemInner;
   text-decoration: line-through blue;
 }

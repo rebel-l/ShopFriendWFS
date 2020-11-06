@@ -1,12 +1,12 @@
 'use strict';
 
 import React, { Component } from 'react';
-import styles from './ListElement.scss';
+import styles from './ListItem.scss';
 
 const cancelTimeout = 2000; // ms
 const progressInterval = 10; // ms
 
-class ListElement extends Component {
+class ListItem extends Component {
     constructor(props) {
         super(props);
 
@@ -73,12 +73,12 @@ class ListElement extends Component {
 
     render() {
         return (
-            <div className={styles.listElementOuter} onClick={this.handleClick}>
-                <div className={`${this.state.active ? styles.listElementInner : styles.listElementInnerInactive}`}
+            <div className={styles.listItemOuter} onClick={this.handleClick}>
+                <div className={`${this.state.active ? styles.listItemInner : styles.listItemInnerInactive}`}
                      style={{width: this.state.progress}}>{this.name}</div>
             </div>
         );
     }
 }
 
-export default ListElement;
+export default ListItem;
