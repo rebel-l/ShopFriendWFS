@@ -18,7 +18,7 @@ class ListItem extends Component {
         this.state = {
             progress: 0 + '%',
             active: true
-        }
+        };
 
         // register event handler
         this.handleClick = this.handleClick.bind(this);
