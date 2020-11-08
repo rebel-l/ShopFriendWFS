@@ -3,11 +3,10 @@
 import {AddListItem} from './ActionsTypes';
 
 export function addListItem(content){
-    console.log('ACTION', content);
     return {
         type: AddListItem,
         payload: {
-            content
-        }
+            name: content
+        } // TODO: add a model here doing the transformation
     };
 }

@@ -7,23 +7,26 @@ import ListItem from "../list-element/ListItem";
 import { connect } from 'react-redux';
 import { getList } from "../../../redux/reducers/selectors";
 
+const mapStateToProps = state => {
+    return getList(state);
+}
+
 class List extends Component {
     constructor(props) {
         super(props);
     }
 
     render() {
-        console.log(this.state);
-        let elements = [];
-        elements.push(<ListItem name={"Spinat"} />);
-        elements.push(<ListItem name={"Apfel"} />);
-
         return (
             <div className={styles.list}>
-                {elements}
+                {this.props.listItems && this.props.listItems.length
+                    ? this.props.listItems.map((item, index) => {
+                        return <ListItem name={item.name} key={index} />;
+                    })
+                    : "no items found"}
             </div>
         );
     }
 }
 
-export default connect(state => ({ list: getList(state)}))(List);
+export default connect(mapStateToProps)(List);

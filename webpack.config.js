@@ -2,6 +2,11 @@ const HtmlWebPackPlugin = require('html-webpack-plugin');
 const WebpackPwaManifest = require('webpack-pwa-manifest');
 
 module.exports = {
+    mode: 'development',    // TODO: separate production and development
+    entry: {
+        app: './src/index.js'
+    },
+    devtool: 'source-map',
     module: {
         rules: [
             {
@@ -57,6 +62,6 @@ module.exports = {
             ],
             ios: true,
             publicPath: '.'
-        }),
+        })
     ]
 };

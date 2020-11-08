@@ -5,12 +5,11 @@ const initialState = {
 };
 
 export default function(state= initialState, action) {
-    console.log('REDUCER', action);
     switch (action.type) {
         case AddListItem:
             return {
                 ...state,
-                listItems: [...state.listItems, action.payload.content]
+                listItems: [...state.listItems, action.payload]
             }
         default:
             return state;
