@@ -16,6 +16,7 @@ class AddItem extends Component {
 
         // register event handler
         this.handleAddListItem = this.handleAddListItem.bind(this);
+        this.handleKey = this.handleKey.bind(this);
     }
 
     updateInput(input){
@@ -28,10 +29,16 @@ class AddItem extends Component {
         this.setState({ input: '' });
     }
 
+    handleKey(e) {
+        if(e.keyCode === 13){
+            this.handleAddListItem();
+        }
+    }
+
     render() {
         return (
             <div>
-                <input onChange={e => this.updateInput(e.target.value)} value={this.state.input}/>
+                <input onChange={e => this.updateInput(e.target.value)} onKeyDown={this.handleKey} value={this.state.input}/>
                 <button onClick={this.handleAddListItem}>add</button>
             </div>
         );
