@@ -23,6 +23,7 @@ class AddItem extends Component {
     }
 
     handleAddListItem() {
+        console.log('INPUT', this.state.input);
         this.props.addListItem(this.state.input);
 
         this.setState({ input: '' });

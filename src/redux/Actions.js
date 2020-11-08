@@ -2,9 +2,12 @@
 
 import {AddListItem} from './ActionsTypes';
 
-export const addListItem = content => ({
-    type: AddListItem,
-    payload: {
-        content
-    }
-});
+export function addListItem(content){
+    console.log('ACTION', content);
+    return {
+        type: AddListItem,
+        payload: {
+            content
+        }
+    };
+}
