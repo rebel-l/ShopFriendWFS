@@ -3,7 +3,7 @@
 import React, { Component } from "react";
 
 import { connect } from 'react-redux';
-import { addListItem } from "../../../redux/Actions";
+import { addListItem } from "../../../redux/actions/shop/list";
 
 class AddItem extends Component {
     constructor(props) {
