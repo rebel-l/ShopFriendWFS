@@ -1,6 +1,7 @@
 'use strict';
 
 import React, { Component } from "react";
+import styles from './AddItem.scss';
 
 import { connect } from 'react-redux';
 import { addListItem } from "../../../redux/actions/shop/list";
@@ -24,8 +25,18 @@ class AddItem extends Component {
     }
 
     handleAddListItem() {
-        this.props.addListItem(this.state.input);
+        let input = this.state.input.trim();
+        if(input === '') {
+            this.resetInput();
+            return;
+        }
 
+        this.props.addListItem(input);
+
+        this.resetInput();
+    }
+
+    resetInput() {
         this.setState({ input: '' });
     }
 
@@ -37,9 +48,12 @@ class AddItem extends Component {
 
     render() {
         return (
-            <div>
-                <input onChange={e => this.updateInput(e.target.value)} onKeyDown={this.handleKey} value={this.state.input}/>
-                <button onClick={this.handleAddListItem}>add</button>
+            <div className={styles.addItem}>
+                <input
+                    className={styles.input}
+                    onChange={e => this.updateInput(e.target.value)}
+                    onKeyDown={this.handleKey} value={this.state.input}/>
+                <button className={styles.button} onClick={this.handleAddListItem}>add</button>
             </div>
         );
     }
