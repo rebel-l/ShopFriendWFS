@@ -8,4 +8,11 @@
   margin-top: 20px;
 
   width: $content-width-desktop;
+
+  // mobile behaviour
+  // TODO: this is desktop first, should we not do mobile first?
+  @media only screen and (max-width: $max-width-mobile) {
+    background-color: #0e90d2;
+    width: $content-width-mobile;
+  }
 }
