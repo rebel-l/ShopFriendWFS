@@ -21,10 +21,12 @@ class ListItem extends Component {
         };
 
         // register event handler
-        this.handleClick = this.handleClick.bind(this);
+        this.handleActivate = this.handleActivate.bind(this);
+        this.handleDelete = this.handleDelete.bind(this);
+        this.handleEdit = this.handleEdit.bind(this);
     }
 
-    handleClick(){
+    handleActivate(){
         if(this.isActive() && this.timer === null) {
             this.deactivate();
             let iterations = cancelTimeout / progressInterval;
@@ -47,6 +49,14 @@ class ListItem extends Component {
             console.log('action canceled');
             this.resetTimer();
         }
+    }
+
+    handleEdit(e){
+        console.log(e);
+    }
+
+    handleDelete(e){
+        console.log(e);
     }
 
     resetTimer(){
@@ -75,12 +85,12 @@ class ListItem extends Component {
         return (
             <div className={styles.outer}>
                 <div className={styles.inner}>
-                    <div className={styles.progressContainer} onClick={this.handleClick}>
+                    <div className={styles.progressContainer} onClick={this.handleActivate}>
                         <div className={`${this.state.active ? styles.progress : styles.progressInactive}`}
                              style={{width: this.state.progress}}>{this.name}</div>
                     </div>
-                    <button>edit</button>
-                    <button>delete</button>
+                    <button onClick={this.handleEdit}>edit</button>
+                    <button onClick={this.handleDelete}>delete</button>
                 </div>
             </div>
         );
