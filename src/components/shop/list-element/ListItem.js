@@ -73,9 +73,15 @@ class ListItem extends Component {
 
     render() {
         return (
-            <div className={styles.listItemOuter} onClick={this.handleClick}>
-                <div className={`${this.state.active ? styles.listItemInner : styles.listItemInnerInactive}`}
-                     style={{width: this.state.progress}}>{this.name}</div>
+            <div className={styles.outer}>
+                <div className={styles.inner}>
+                    <div className={styles.progressContainer} onClick={this.handleClick}>
+                        <div className={`${this.state.active ? styles.progress : styles.progressInactive}`}
+                             style={{width: this.state.progress}}>{this.name}</div>
+                    </div>
+                    <button>edit</button>
+                    <button>delete</button>
+                </div>
             </div>
         );
     }

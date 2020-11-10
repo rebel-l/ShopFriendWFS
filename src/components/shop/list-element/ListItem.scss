@@ -1,4 +1,12 @@
-.listItemOuter {
+.inner {
+  button {
+    width: 9%;
+  }
+
+  width: 100%;
+}
+
+.outer {
   border-color: #000;
   border-style: solid;
   border-width: 1px;
@@ -6,12 +14,18 @@
   width: 100%;
 }
 
-.listItemInner {
+.progressContainer {
+  width: 80%;
+
+  float: left;
+}
+
+.progress {
   color: red;
   background-color: #0e0e0e;
 }
 
-.listItemInnerInactive {
-  composes: listItemInner;
+.progressInactive {
+  composes: progress;
   text-decoration: line-through blue;
 }
