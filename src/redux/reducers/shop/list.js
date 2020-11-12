@@ -1,4 +1,4 @@
-import {SHOP_ADD_LIST_ITEM, SHOP_LIST_REMOVE_ITEM} from "../../types";
+import {SHOP_LIST_ADD_ITEM, SHOP_LIST_REMOVE_ITEM} from "../../types";
 
 const initialState = {
     listItems: []
@@ -6,7 +6,7 @@ const initialState = {
 
 export default function(state= initialState, action) {
     switch (action.type) {
-        case SHOP_ADD_LIST_ITEM:
+        case SHOP_LIST_ADD_ITEM:
             return {
                 ...state,
                 listItems: [...state.listItems, action.payload]
