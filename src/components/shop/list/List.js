@@ -20,8 +20,8 @@ class List extends Component {
         return (
             <div className={styles.list}>
                 {this.props.listItems && this.props.listItems.length
-                    ? this.props.listItems.map((item, index) => {
-                        return <ListItem name={item.name} key={index} />;
+                    ? this.props.listItems.map((item) => {
+                        return <ListItem item={item} key={item.id} />;
                     })
                     : "no items found"}
             </div>

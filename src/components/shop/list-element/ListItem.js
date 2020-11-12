@@ -3,6 +3,9 @@
 import React, { Component } from 'react';
 import styles from './ListItem.scss';
 
+import { connect } from 'react-redux';
+import { removeItem } from "../../../redux/actions/shop/list";
+
 const cancelTimeout = 2000; // ms
 const progressInterval = 10; // ms
 
@@ -11,7 +14,7 @@ class ListItem extends Component {
         super(props);
 
         // init attributes
-        this.name = props.name;
+        this.item = props.item;
         this.timer = null;
 
         // init state
@@ -51,12 +54,12 @@ class ListItem extends Component {
         }
     }
 
-    handleEdit(e){
-        console.log(e);
+    handleEdit(id){
+        console.log('EDIT', id);
     }
 
-    handleDelete(e){
-        console.log(e);
+    handleDelete(id){
+        this.props.removeItem(id);
     }
 
     resetTimer(){
@@ -87,14 +90,14 @@ class ListItem extends Component {
                 <div className={styles.inner}>
                     <div className={styles.progressContainer} onClick={this.handleActivate}>
                         <div className={`${this.state.active ? styles.progress : styles.progressInactive}`}
-                             style={{width: this.state.progress}}>{this.name}</div>
+                             style={{width: this.state.progress}}>{this.item.name}</div>
                     </div>
-                    <button onClick={this.handleEdit}>edit</button>
-                    <button onClick={this.handleDelete}>delete</button>
+                    <button onClick={() => this.handleEdit(this.item.id)}>edit</button>
+                    <button onClick={() => this.handleDelete(this.item.id)}>delete</button>
                 </div>
             </div>
         );
     }
 }
 
-export default ListItem;
+export default connect(null, { removeItem })(ListItem);
