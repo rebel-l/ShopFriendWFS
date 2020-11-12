@@ -1,18 +1,12 @@
 'use strict';
 
 import {SHOP_LIST_ADD_ITEM, SHOP_LIST_REMOVE_ITEM} from '../../types';
-
-let id = 0;
+import NewItems from "../../../model/shop/items";
 
 export function addListItem(content){
-    id++;
-
     return {
         type: SHOP_LIST_ADD_ITEM,
-        payload: {
-            id: id,
-            name: content
-        } // TODO: add a model here doing the transformation
+        payload: NewItems(content)
     };
 }
 

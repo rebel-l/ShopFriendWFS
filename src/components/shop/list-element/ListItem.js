@@ -20,7 +20,7 @@ class ListItem extends Component {
         // init state
         this.state = {
             progress: 0 + '%',
-            active: true
+            active: true // TODO: think of using it from item itself?
         };
 
         // register event handler
@@ -90,7 +90,9 @@ class ListItem extends Component {
                 <div className={styles.inner}>
                     <div className={styles.progressContainer} onClick={this.handleActivate}>
                         <div className={`${this.state.active ? styles.progress : styles.progressInactive}`}
-                             style={{width: this.state.progress}}>{this.item.name}</div>
+                             style={{width: this.state.progress}}>
+                            {this.item.name}{this.item.amount !== null ? ':' + this.item.amount : ''}
+                        </div>
                     </div>
                     <button onClick={() => this.handleEdit(this.item.id)}>edit</button>
                     <button onClick={() => this.handleDelete(this.item.id)}>delete</button>

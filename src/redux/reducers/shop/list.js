@@ -9,7 +9,7 @@ export default function(state= initialState, action) {
         case SHOP_LIST_ADD_ITEM:
             return {
                 ...state,
-                listItems: [...state.listItems, action.payload]
+                listItems: [...state.listItems, ...action.payload]
             }
         case SHOP_LIST_REMOVE_ITEM:
             return {
