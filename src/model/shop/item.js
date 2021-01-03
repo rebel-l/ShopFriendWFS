@@ -15,10 +15,16 @@ function NewItem(content) {
 
     return {
         id: id++,
-        name: data.length > 0 ? data[0].trim() : 'error', // TODO: how to throw errors with babel?
+        name: data.length > 0 ? data[0].trim() : '',
         amount: data.length > 1 ? data[1].trim() : null,
-        active: true
+        active: true,
+        toString
     }
+}
+
+function toString() {
+    let amount = this.amount !== null ? ':' + this.amount : '';
+    return this.name + amount;
 }
 
 export default NewItem;

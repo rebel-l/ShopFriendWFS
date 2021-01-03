@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 import styles from './ListItem.scss';
 
 import { connect } from 'react-redux';
-import { removeItem } from "../../../redux/actions/shop/list";
+import { removeItem, editItem } from "../../../redux/actions/shop/list";
 
 const cancelTimeout = 2000; // ms
 const progressInterval = 10; // ms
@@ -54,8 +54,8 @@ class ListItem extends Component {
         }
     }
 
-    handleEdit(id){
-        console.log('EDIT', id);
+    handleEdit(){
+        this.props.editItem(this.item);
     }
 
     handleDelete(id){
@@ -94,7 +94,7 @@ class ListItem extends Component {
                             {this.item.name}{this.item.amount !== null ? ':' + this.item.amount : ''}
                         </div>
                     </div>
-                    <button onClick={() => this.handleEdit(this.item.id)}>edit</button>
+                    <button onClick={this.handleEdit}>edit</button>
                     <button onClick={() => this.handleDelete(this.item.id)}>delete</button>
                 </div>
             </div>
@@ -102,4 +102,4 @@ class ListItem extends Component {
     }
 }
 
-export default connect(null, { removeItem })(ListItem);
+export default connect(null, { removeItem, editItem })(ListItem);

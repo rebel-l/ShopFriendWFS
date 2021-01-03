@@ -17,3 +17,5 @@ docker build -t rebel1l/shopfriend:$BRANCH .
 # start
 docker run --name shopfriend -e NODE_ENV=development -d -it -p 8080:80 rebel1l/shopfriend:$BRANCH # TODO: make production && development run possible
 docker ps
+
+df -h
