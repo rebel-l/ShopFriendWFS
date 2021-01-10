@@ -4,12 +4,10 @@ import React, {Component} from "react";
 import styles from './AddItem.scss';
 
 import {connect} from 'react-redux';
-import {addListItem, editItem} from "../../../redux/actions/shop/list";
+import {addListItem, editItem, updateListItem} from "../../../redux/actions/shop/list";
 import {getEditItem} from "../../../redux/reducers/selectors";
 
 const mapStateToProps = state => {
-    console.log('MAP1', state);
-    console.log('MAP2', getEditItem(state));
     return getEditItem(state);
 }
 
@@ -17,10 +15,9 @@ class AddItem extends Component {
     constructor(props) {
         super(props);
 
-        console.log('PROPS', props);
-
         // init state
         this.state = {
+            id: null,
             input: ''
         };
 
@@ -29,8 +26,8 @@ class AddItem extends Component {
         this.handleKey = this.handleKey.bind(this);
     }
 
-    updateInput(input) {
-        this.setState({input});
+    updateInput(input, id) {
+        this.setState({id: id, input: input});
     }
 
     handleAddListItem() {
@@ -40,13 +37,19 @@ class AddItem extends Component {
             return;
         }
 
-        this.props.addListItem(input);
+        if (this.state.id != null) {
+            this.props.updateListItem(this.state.id, input);
+        } else {
+            this.props.addListItem(input);
+        }
+
         this.props.editItem(null);
 
         this.resetInput();
     }
 
     resetInput() {
+        this.setState({id: null});
         this.setState({input: ''});
     }
 
@@ -58,17 +61,18 @@ class AddItem extends Component {
 
     render() {
         let input = this.state.input
-        console.log('STATE', this.state);
-        if(!input && this.props.name){
-            console.log('IF', this.props);
+        let id = this.state.id;
+
+        if (!input && this.props.name) {
+            id = this.props.id;
             input = this.props.toString()
         }
-        console.log("RENDER", this.props);
+
         return (
             <div className={styles.addItem}>
                 <input
                     className={styles.input}
-                    onChange={e => this.updateInput(e.target.value)}
+                    onChange={e => this.updateInput(e.target.value, id)}
                     onKeyDown={this.handleKey}
                     value={input}/>
                 <button className={styles.button} onClick={this.handleAddListItem}>add</button>
@@ -77,4 +81,4 @@ class AddItem extends Component {
     }
 }
 
-export default connect(mapStateToProps, {addListItem, editItem})(AddItem);
+export default connect(mapStateToProps, {addListItem, editItem, updateListItem})(AddItem);

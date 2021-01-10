@@ -91,7 +91,7 @@ class ListItem extends Component {
                     <div className={styles.progressContainer} onClick={this.handleActivate}>
                         <div className={`${this.state.active ? styles.progress : styles.progressInactive}`}
                              style={{width: this.state.progress}}>
-                            {this.item.name}{this.item.amount !== null ? ':' + this.item.amount : ''}
+                            {this.item.toString()}
                         </div>
                     </div>
                     <button onClick={this.handleEdit}>edit</button>

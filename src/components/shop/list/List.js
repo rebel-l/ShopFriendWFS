@@ -8,7 +8,7 @@ import { connect } from 'react-redux';
 import { getList } from '../../../redux/reducers/selectors';
 
 const mapStateToProps = state => {
-    return getList(state);
+    return {list: getList(state)};
 }
 
 class List extends Component {
@@ -19,11 +19,14 @@ class List extends Component {
     render() {
         return (
             <div className={styles.list}>
-                {this.props.listItems && this.props.listItems.length
-                    ? this.props.listItems.map((item) => {
-                        return <ListItem item={item} key={item.id} />;
-                    })
-                    : "no items found"}
+                {
+                    this.props.list && this.props.list.length ?
+                        this.props.list.map((item) => {
+                            const key = item.id + '-' + item.name + '-' + item.amount;
+                            return <ListItem item={item} key={key} />;
+                        })
+                        : "no items found"
+                }
             </div>
         );
     }
