@@ -1,6 +1,14 @@
+@import './../../variables';
+
 .inner {
   button {
     width: 9%;
+    display: none;  // TODO: doesn't work
+
+    // tablet and above
+    @media only screen and (min-width: $width-tablet){
+      display: inline;
+    }
   }
 
   width: 100%;

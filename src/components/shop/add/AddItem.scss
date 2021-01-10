@@ -1,7 +1,18 @@
 @import './../../variables';
 
 .addItem {
-  width: $content-width-desktop;
+  width: $content-width-mobile;
+
+  // tablet behaviour
+  @media only screen and (min-width: $width-tablet) {
+    width: $content-width-tablet;
+  }
+
+  // desktop behaviour
+  @media only screen and (min-width: $width-desktop) {
+    background-color: #0e90d2;
+    width: $content-width-desktop;
+  }
 }
 
 .input {
