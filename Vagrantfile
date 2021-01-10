@@ -15,10 +15,13 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 	config.hostmanager.ignore_private_ip	= false
 	config.hostmanager.include_offline		= true
 
+	config.disksize.size = '20GB'
+
     config.vm.provider "virtualbox" do |vb|
         vb.name = "ShopFriendWebApp"
         # vb.gui = true
-        # vb.memory = "1024"
+       vb.memory = "2048"
+       vb.cpus = 2
     end
 
     config.vm.network "private_network", ip: "192.168.20.20"
