@@ -1,17 +1,21 @@
 'use strict';
 
-import React, {Component} from "react";
-import styles from './AddItem.scss';
+import React, {Component} from 'react';
+import styles from './Editor.scss';
 
 import {connect} from 'react-redux';
-import {addListItem, editItem, updateListItem} from "../../../redux/actions/shop/list";
-import {getEditItem} from "../../../redux/reducers/selectors";
+import {editItem} from '../../redux/actions/shop/editor';
+import {addItem, updateItem} from '../../redux/actions/shop/list';
+import {getEditItem} from '../../redux/reducers/selectors';
 
 const mapStateToProps = state => {
     return getEditItem(state);
 }
 
-class AddItem extends Component {
+/**
+ * Editor is the UI component to adds or edit items of the shopping list.
+ */
+class Editor extends Component {
     constructor(props) {
         super(props);
 
@@ -22,15 +26,24 @@ class AddItem extends Component {
         };
 
         // register event handler
-        this.handleAddListItem = this.handleAddListItem.bind(this);
+        this.handleItem = this.handleItem.bind(this);
         this.handleKey = this.handleKey.bind(this);
     }
 
+    /**
+     * updateInput handles the changes in the input tag.
+     *
+     * @param input
+     * @param id
+     */
     updateInput(input, id) {
         this.setState({id: id, input: input});
     }
 
-    handleAddListItem() {
+    /**
+     * handleItem adds the items entered by the user in the input tag or updates an item in the shopping list.
+     */
+    handleItem() {
         let input = this.state.input.trim();
         if (input === '') {
             this.resetInput();
@@ -38,9 +51,9 @@ class AddItem extends Component {
         }
 
         if (this.state.id != null) {
-            this.props.updateListItem(this.state.id, input);
+            this.props.updateItem(this.state.id, input);
         } else {
-            this.props.addListItem(input);
+            this.props.addItem(input);
         }
 
         this.props.editItem(null);
@@ -48,14 +61,22 @@ class AddItem extends Component {
         this.resetInput();
     }
 
+    /**
+     * resetInput resets the input tag to its initial (empty) values.
+     */
     resetInput() {
         this.setState({id: null});
         this.setState({input: ''});
     }
 
+    /**
+     * handleKey delegates the user input to handleItem() by pressing a specific key.
+     *
+     * @param e
+     */
     handleKey(e) {
         if (e.keyCode === 13) {
-            this.handleAddListItem();
+            this.handleItem();
         }
     }
 
@@ -69,16 +90,16 @@ class AddItem extends Component {
         }
 
         return (
-            <div className={styles.addItem}>
+            <div className={styles.editor}>
                 <input
                     className={styles.input}
                     onChange={e => this.updateInput(e.target.value, id)}
                     onKeyDown={this.handleKey}
                     value={input}/>
-                <button className={styles.button} onClick={this.handleAddListItem}>add</button>
+                <button className={styles.button} onClick={this.handleItem}>add</button>
             </div>
         );
     }
 }
 
-export default connect(mapStateToProps, {addListItem, editItem, updateListItem})(AddItem);
+export default connect(mapStateToProps, {addItem, editItem, updateItem})(Editor);

@@ -1,9 +1,9 @@
 'use strict';
 
-import React, { Component } from "react";
-import Facebook from "./Facebook";
-import List from "./shop/list/List";
-import AddItem from "./shop/add/AddItem";
+import React, { Component } from 'react';
+import Facebook from './Facebook';
+import List from './shop/list/List';
+import Editor from './shop/Editor';
 
 class App extends Component {
     render() {
@@ -12,7 +12,7 @@ class App extends Component {
                 <h1>Hello World</h1>
                 <p>Have fun playing around</p>
                 <Facebook />
-                <AddItem />
+                <Editor />
                 <List />
             </div>
         );

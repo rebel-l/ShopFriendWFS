@@ -1,10 +1,11 @@
 'use strict';
 
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import styles from './ListItem.scss';
 
-import { connect } from 'react-redux';
-import { removeItem, editItem } from "../../../redux/actions/shop/list";
+import {connect} from 'react-redux';
+import {editItem} from '../../../redux/actions/shop/editor';
+import {removeItem} from '../../../redux/actions/shop/list';
 
 const cancelTimeout = 2000; // ms
 const progressInterval = 10; // ms
@@ -29,18 +30,18 @@ class ListItem extends Component {
         this.handleEdit = this.handleEdit.bind(this);
     }
 
-    handleActivate(){
-        if(this.isActive() && this.timer === null) {
+    handleActivate() {
+        if (this.isActive() && this.timer === null) {
             this.deactivate();
             let iterations = cancelTimeout / progressInterval;
             let step = 100 / iterations;
             let counter = 0;
             let self = this;
-            this.timer = setInterval(function (){
+            this.timer = setInterval(function () {
                 counter++;
                 let progress = counter * step;
 
-                if(counter < iterations){
+                if (counter < iterations) {
                     self.setProgress(progress);
                 } else {
                     self.resetTimer();
@@ -54,33 +55,33 @@ class ListItem extends Component {
         }
     }
 
-    handleEdit(){
+    handleEdit() {
         this.props.editItem(this.item);
     }
 
-    handleDelete(id){
+    handleDelete(id) {
         this.props.removeItem(id);
     }
 
-    resetTimer(){
+    resetTimer() {
         this.setProgress(0);
         clearInterval(this.timer);
         this.timer = null;
     }
 
-    setProgress(value){
+    setProgress(value) {
         this.setState({progress: value + '%'});
     }
 
-    activate(){
+    activate() {
         this.setState({active: true});
     }
 
-    deactivate(){
+    deactivate() {
         this.setState({active: false});
     }
 
-    isActive(){
+    isActive() {
         return this.state.active;
     }
 
@@ -102,4 +103,4 @@ class ListItem extends Component {
     }
 }
 
-export default connect(null, { removeItem, editItem })(ListItem);
+export default connect(null, {removeItem, editItem})(ListItem);
