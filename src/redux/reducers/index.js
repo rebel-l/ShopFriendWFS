@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import listItems from './shop/list';
-import editItem from './shop/item';
+import shopList from './shop/list';
+import shopEditor from './shop/editor';
 
-export default combineReducers({listItems, editItem});
+export default combineReducers({shopList, shopEditor});

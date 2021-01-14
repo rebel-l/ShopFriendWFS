@@ -6,6 +6,13 @@ import {
 
 const initialState = [];
 
+/**
+ * takes care about the actions regarding the shopping list.
+ *
+ * @param state
+ * @param action
+ * @returns {[]|(*)[]|*[]}
+ */
 export default function (state = initialState, action) {
     switch (action.type) {
         case SHOP_LIST_ADD_ITEM:
