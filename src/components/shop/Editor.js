@@ -6,10 +6,9 @@ import styles from './Editor.scss';
 import {connect} from 'react-redux';
 import {editItem} from '../../redux/actions/shop/editor';
 import {addItem, updateItem} from '../../redux/actions/shop/list';
-import {getEditItem} from '../../redux/reducers/selectors';
 
 const mapStateToProps = state => {
-    return getEditItem(state);
+    return state.shopEditor;
 }
 
 /**
