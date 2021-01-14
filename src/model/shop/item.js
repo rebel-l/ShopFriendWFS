@@ -1,6 +1,9 @@
+/**
+ * id is a global (temporary) autoincrement to identify the items in the frontend.
+ *
+ * @type {number}
+ */
 let id = 0;
-
-// const errMandatoryName = new Error('name is mandatory');
 
 /**
  * Creates a new item from given string.
@@ -22,6 +25,11 @@ function NewItem(content) {
     }
 }
 
+/**
+ * toString returns the name and the amount of an item like it is represented in frontend.
+ *
+ * @returns {string}
+ */
 function toString() {
     let amount = this.amount !== null ? ':' + this.amount : '';
     return this.name + amount;
