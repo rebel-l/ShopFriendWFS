@@ -2,10 +2,10 @@
 
 import React, { Component } from 'react';
 import styles from './List.scss';
-import ListItem from '../list-element/ListItem';
+import ListItem from './list-element/ListItem';
 
 import { connect } from 'react-redux';
-import { getList } from '../../../redux/reducers/selectors';
+import { getList } from '../../redux/reducers/selectors';
 
 const mapStateToProps = state => {
     return {list: getList(state)};

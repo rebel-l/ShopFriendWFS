@@ -2,7 +2,7 @@
 
 import React, { Component } from 'react';
 import Facebook from './Facebook';
-import List from './shop/list/List';
+import List from './shop/List';
 import Editor from './shop/Editor';
 
 class App extends Component {

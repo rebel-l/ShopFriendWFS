@@ -4,14 +4,13 @@ import {
     SHOP_LIST_ADD_ITEM,
     SHOP_LIST_UPDATE_ITEM,
     SHOP_LIST_REMOVE_ITEM,
-    SHOP_LIST_EDIT_ITEM
 
 } from '../../types';
 import NewItems from "../../../model/shop/items";
 import NewItem from "../../../model/shop/item";
 
 /**
- * Adds an item to the shopping list in store.
+ * Adds one or more items to the shopping list in store.
  *
  * @param content
  * @returns {{payload: *[], type: string}}
