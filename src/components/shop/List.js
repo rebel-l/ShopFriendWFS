@@ -26,7 +26,6 @@ class List extends Component {
                 {
                     this.props.items && this.props.items.length ?
                         this.props.items.map((item) => {
-                            // TODO: maybe don't set the key ourselves
                             return <Item item={item} key={item.getKey()} />;
                         })
                         : "no items found"
