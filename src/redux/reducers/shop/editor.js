@@ -1,6 +1,6 @@
 'use strict';
 
-import {SHOP_LIST_EDIT_ITEM} from '../../types';
+import {SHOP_LIST_EDIT_ITEM} from '../../types/shop/list';
 
 const initialState = {};
 

@@ -1,8 +1,7 @@
-import {
-    SHOP_LIST_ADD_ITEM,
-    SHOP_LIST_UPDATE_ITEM,
-    SHOP_LIST_REMOVE_ITEM
-} from "../../types";
+'use strict';
+
+import {SHOP_LIST_REMOVE_ITEM} from "../../types/shop/list";
+import {SHOP_EDITOR_ITEM_ADD, SHOP_EDITOR_ITEM_UPDATE} from '../../types/shop/editor';
 
 const initialState = [];
 
@@ -15,9 +14,9 @@ const initialState = [];
  */
 export default function (state = initialState, action) {
     switch (action.type) {
-        case SHOP_LIST_ADD_ITEM:
+        case SHOP_EDITOR_ITEM_ADD:
             return [...state, ...action.payload];
-        case SHOP_LIST_UPDATE_ITEM:
+        case SHOP_EDITOR_ITEM_UPDATE:
             return state.map(item => {
                 if (item.id === action.payload.id) {
                     return action.payload;

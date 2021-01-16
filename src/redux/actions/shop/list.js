@@ -1,11 +1,7 @@
 'use strict';
 
-import {
-    SHOP_LIST_ADD_ITEM,
-    SHOP_LIST_UPDATE_ITEM,
-    SHOP_LIST_REMOVE_ITEM,
-
-} from '../../types';
+import {SHOP_LIST_REMOVE_ITEM} from '../../types/shop/list';
+import {SHOP_EDITOR_ITEM_ADD, SHOP_EDITOR_ITEM_UPDATE} from '../../types/shop/editor';
 import NewItems from "../../../model/shop/items";
 import NewItem from "../../../model/shop/item";
 
@@ -17,7 +13,7 @@ import NewItem from "../../../model/shop/item";
  */
 export function addItem(content) {
     return {
-        type: SHOP_LIST_ADD_ITEM,
+        type: SHOP_EDITOR_ITEM_ADD,
         payload: NewItems(content)
     };
 }
@@ -35,7 +31,7 @@ export function updateItem(id, content) {
     item.id = id;
 
     return {
-        type: SHOP_LIST_UPDATE_ITEM,
+        type: SHOP_EDITOR_ITEM_UPDATE,
         payload: item
     }
 }

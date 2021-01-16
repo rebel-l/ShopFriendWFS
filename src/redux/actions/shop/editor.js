@@ -1,4 +1,6 @@
-import {SHOP_LIST_EDIT_ITEM} from "../../types";
+'use strict';
+
+import {SHOP_LIST_EDIT_ITEM} from "../../types/shop/list";
 
 /**
  * Sets the item to edit on the store.
