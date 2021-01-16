@@ -1,6 +1,6 @@
 'use strict';
 
-import {SHOP_LIST_ITEM_EDIT, SHOP_LIST_ITEM_REMOVE} from '../../types/shop/list';
+import {SHOP_LIST_ITEM_EDIT, SHOP_LIST_ITEM_REMOVE} from '../../../types/shop/list/item';
 
 /**
  * Sets the item to edit on the store.

@@ -1,12 +1,12 @@
 'use strict';
 
-import {SHOP_LIST_ITEM_REMOVE} from "../../types/shop/list";
-import {SHOP_EDITOR_ITEM_ADD, SHOP_EDITOR_ITEM_UPDATE} from '../../types/shop/editor';
+import {SHOP_LIST_ITEM_REMOVE} from "../../../types/shop/list/item";
+import {SHOP_EDITOR_ITEM_ADD, SHOP_EDITOR_ITEM_UPDATE} from '../../../types/shop/editor';
 
 const initialState = [];
 
 /**
- * takes care about the actions regarding the shopping list.
+ * takes care about the actions regarding the items in shopping list.
  *
  * @param state
  * @param action
