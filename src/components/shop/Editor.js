@@ -4,8 +4,8 @@ import React, {Component} from 'react';
 import styles from './Editor.scss';
 
 import {connect} from 'react-redux';
-import {editItem} from '../../redux/actions/shop/editor';
-import {addItem, updateItem} from '../../redux/actions/shop/list';
+import {editItem} from '../../redux/actions/shop/list';
+import {addItem, updateItem} from '../../redux/actions/shop/editor';
 
 const mapStateToProps = state => {
     return state.shopEditor;

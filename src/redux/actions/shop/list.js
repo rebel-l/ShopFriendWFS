@@ -1,39 +1,18 @@
 'use strict';
 
-import {SHOP_LIST_ITEM_REMOVE} from '../../types/shop/list';
-import {SHOP_EDITOR_ITEM_ADD, SHOP_EDITOR_ITEM_UPDATE} from '../../types/shop/editor';
-import NewItems from "../../../model/shop/items";
-import NewItem from "../../../model/shop/item";
+import {SHOP_LIST_ITEM_EDIT, SHOP_LIST_ITEM_REMOVE} from '../../types/shop/list';
 
 /**
- * Adds one or more items to the shopping list in store.
+ * Sets the item to edit on the store.
  *
- * @param content
- * @returns {{payload: *[], type: string}}
+ * @param item
+ * @returns {{payload, type: string}}
  */
-export function addItem(content) {
+export function editItem(item) {
     return {
-        type: SHOP_EDITOR_ITEM_ADD,
-        payload: NewItems(content)
-    };
-}
-
-/**
- * Updates an item in the shopping list on store.
- *
- * @param id
- * @param content
- * @returns {{payload: {amount: (string|null), name: (string|*), active: boolean, id: number}, type: string}}
- */
-export function updateItem(id, content) {
-    // TODO: only first item can be editable, if we get more items comma separated we should add them as new ones
-    let item = NewItem(content);
-    item.id = id;
-
-    return {
-        type: SHOP_EDITOR_ITEM_UPDATE,
+        type: SHOP_LIST_ITEM_EDIT,
         payload: item
-    }
+    };
 }
 
 /**

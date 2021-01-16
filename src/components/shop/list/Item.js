@@ -4,8 +4,7 @@ import React, {Component} from 'react';
 import styles from './Item.scss';
 
 import {connect} from 'react-redux';
-import {editItem} from '../../../redux/actions/shop/editor';
-import {removeItem} from '../../../redux/actions/shop/list';
+import {editItem, removeItem} from '../../../redux/actions/shop/list';
 
 /**
  * cancelTimeout is the time the user can abort the deactivation of an item.
