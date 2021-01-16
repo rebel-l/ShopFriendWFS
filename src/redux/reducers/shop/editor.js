@@ -1,6 +1,6 @@
 'use strict';
 
-import {SHOP_LIST_EDIT_ITEM} from '../../types/shop/list';
+import {SHOP_LIST_ITEM_EDIT} from '../../types/shop/list';
 
 const initialState = {};
 
@@ -13,7 +13,7 @@ const initialState = {};
  */
 export default function (state = initialState, action) {
     switch (action.type) {
-        case SHOP_LIST_EDIT_ITEM:
+        case SHOP_LIST_ITEM_EDIT:
             return action.payload;
         default:
             return state;

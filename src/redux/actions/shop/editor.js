@@ -1,6 +1,6 @@
 'use strict';
 
-import {SHOP_LIST_EDIT_ITEM} from "../../types/shop/list";
+import {SHOP_LIST_ITEM_EDIT} from "../../types/shop/list";
 
 /**
  * Sets the item to edit on the store.
@@ -10,7 +10,7 @@ import {SHOP_LIST_EDIT_ITEM} from "../../types/shop/list";
  */
 export function editItem(item) {
     return {
-        type: SHOP_LIST_EDIT_ITEM,
+        type: SHOP_LIST_ITEM_EDIT,
         payload: item
     };
 }

@@ -1,6 +1,6 @@
 'use strict';
 
-import {SHOP_LIST_REMOVE_ITEM} from "../../types/shop/list";
+import {SHOP_LIST_ITEM_REMOVE} from "../../types/shop/list";
 import {SHOP_EDITOR_ITEM_ADD, SHOP_EDITOR_ITEM_UPDATE} from '../../types/shop/editor';
 
 const initialState = [];
@@ -24,7 +24,7 @@ export default function (state = initialState, action) {
 
                 return item;
             });
-        case SHOP_LIST_REMOVE_ITEM:
+        case SHOP_LIST_ITEM_REMOVE:
             return state.filter((item) => item.id !== action.payload);
         default:
             return state;
