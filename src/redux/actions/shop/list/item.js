@@ -1,9 +1,14 @@
 'use strict';
 
-import {SHOP_LIST_ITEM_EDIT, SHOP_LIST_ITEM_REMOVE} from '../../../types/shop/list/item';
+import {
+    SHOP_LIST_ITEM_EDIT,
+    SHOP_LIST_ITEM_REMOVE,
+    SHOP_LIST_ITEM_ACTIVATE,
+    SHOP_LIST_ITEM_DEACTIVATE
+} from '../../../types/shop/list/item';
 
 /**
- * Sets the item to edit on the store.
+ * Sets the item to edit on the redux store.
  *
  * @param item
  * @returns {{payload, type: string}}
@@ -16,7 +21,7 @@ export function editItem(item) {
 }
 
 /**
- * Removes an item from the shopping list on store.
+ * Removes an item from the shopping list on the redux store.
  *
  * @param id
  * @returns {{payload, type: string}}
@@ -26,4 +31,30 @@ export function removeItem(id) {
         type: SHOP_LIST_ITEM_REMOVE,
         payload: id
     };
+}
+
+/**
+ * Deactivates an item from the shopping list in the redux store.
+ *
+ * @param id {number|string}
+ * @returns {{payload, type: string}}
+ */
+export function deactivateItem(id) {
+    return {
+        type: SHOP_LIST_ITEM_DEACTIVATE,
+        payload: id
+    }
+}
+
+/**
+ * Activates an item from the shopping list in the redux store.
+ *
+ * @param id {number|string}
+ * @returns {{payload, type: string}}
+ */
+export function activateItem(id) {
+    return {
+        type: SHOP_LIST_ITEM_ACTIVATE,
+        payload: id
+    }
 }

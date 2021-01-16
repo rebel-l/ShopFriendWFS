@@ -21,7 +21,10 @@ function NewItem(content) {
         name: data.length > 0 ? data[0].trim() : '',
         amount: data.length > 1 ? data[1].trim() : null,
         active: true,
-        toString
+        toString,
+        activate,
+        deactivate,
+        getKey
     }
 }
 
@@ -33,6 +36,24 @@ function NewItem(content) {
 function toString() {
     let amount = this.amount !== null ? ':' + this.amount : '';
     return this.name + amount;
+}
+
+/**
+ * deactivate the item
+ */
+function deactivate() {
+    this.active = false;
+}
+
+/**
+ * activate the item
+ */
+function activate() {
+    this.active = true;
+}
+
+function getKey() {
+    return this.id + '-' + this.name + '-' + this.amount; // TODO: use a hash
 }
 
 export default NewItem;

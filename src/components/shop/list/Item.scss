@@ -3,7 +3,7 @@
 .inner {
   button {
     width: 9%;
-    display: none;  // TODO: doesn't work
+    display: none;  // FIXME: doesn't work
 
     // tablet and above
     @media only screen and (min-width: $width-tablet){

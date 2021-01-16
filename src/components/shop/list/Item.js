@@ -4,7 +4,7 @@ import React, {Component} from 'react';
 import styles from './Item.scss';
 
 import {connect} from 'react-redux';
-import {editItem, removeItem} from '../../../redux/actions/shop/list/item';
+import {editItem, removeItem, activateItem, deactivateItem} from '../../../redux/actions/shop/list/item';
 
 /**
  * cancelTimeout is the time the user can abort the deactivation of an item.
@@ -47,10 +47,14 @@ class Item extends Component {
      * handleActivate deals with de-/ activating an item by user. It steers the progress bar until it times out or the
      * user cancels the deactivation.
      * Activation the item happens immediately.
+     *
+     * @param id {number|string}
      */
-    handleActivate() {
+    handleActivate(id) {
         if (this.isActive() && this.timer === null) {
             this.deactivate();
+
+            // delay re-rendering shopping list depending on user action
             let iterations = cancelTimeout / progressInterval;
             let step = 100 / iterations;
             let counter = 0;
@@ -64,12 +68,12 @@ class Item extends Component {
                 } else {
                     // we have timed out, item is deactivated
                     self.resetTimer();
-                    console.log('timed out');
+                    self.props.deactivateItem(id);
                 }
             }, progressInterval);
         } else {
             // deactivating item was canceled by user
-            this.activate();
+            this.activate(id);
             this.resetTimer();
         }
     }
@@ -110,8 +114,11 @@ class Item extends Component {
 
     /**
      * activate will activate the item.
+     *
+     * @param id {number|string}
      */
-    activate() {
+    activate(id) {
+        this.props.activateItem(id);
         this.setState({active: true});
     }
 
@@ -135,7 +142,7 @@ class Item extends Component {
         return (
             <div className={styles.outer}>
                 <div className={styles.inner}>
-                    <div className={styles.progressContainer} onClick={this.handleActivate}>
+                    <div className={styles.progressContainer} onClick={() => this.handleActivate(this.item.id)}>
                         <div className={`${this.state.active ? styles.progress : styles.progressInactive}`}
                              style={{width: this.state.progress}}>
                             {this.item.toString()}
@@ -149,4 +156,4 @@ class Item extends Component {
     }
 }
 
-export default connect(null, {removeItem, editItem})(Item);
+export default connect(null, {removeItem, editItem, activateItem, deactivateItem})(Item);

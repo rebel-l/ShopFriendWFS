@@ -5,10 +5,11 @@ import styles from './List.scss';
 import Item from './list/Item';
 
 import { connect } from 'react-redux';
-import { getList } from '../../redux/reducers/selectors';
 
-const mapStateToProps = state => {
-    return {list: getList(state)};
+const mapStateToProps = (state) => {
+    return {
+        items: state.shopList.items
+    };
 }
 
 /**
@@ -23,10 +24,10 @@ class List extends Component {
         return (
             <div className={styles.list}>
                 {
-                    this.props.list && this.props.list.length ?
-                        this.props.list.map((item) => {
-                            const key = item.id + '-' + item.name + '-' + item.amount;
-                            return <Item item={item} key={key} />;
+                    this.props.items && this.props.items.length ?
+                        this.props.items.map((item) => {
+                            // TODO: maybe don't set the key ourselves
+                            return <Item item={item} key={item.getKey()} />;
                         })
                         : "no items found"
                 }
