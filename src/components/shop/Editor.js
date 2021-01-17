@@ -95,7 +95,7 @@ class Editor extends Component {
                     onChange={e => this.updateInput(e.target.value, id)}
                     onKeyDown={this.handleKey}
                     value={input}/>
-                <button className={styles.button} onClick={this.handleItem}>add</button>
+                <button className={styles.button} onClick={this.handleItem}>+</button>
             </div>
         );
     }

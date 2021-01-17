@@ -10,15 +10,16 @@
 
   // desktop behaviour
   @media only screen and (min-width: $width-desktop) {
-    background-color: #0e90d2;
     width: $content-width-desktop;
   }
 }
 
 .input {
-  width: 94%;
+  width: 92%;
 }
 
 .button {
   width: 5%;
+
+  float: right;
 }

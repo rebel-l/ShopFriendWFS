@@ -1,7 +1,9 @@
 @import '../variables';
 
+
 .list {
-  border-width: 3px;
+  border-top-width: $border-width-mobile;
+  border-bottom-width: $border-width-mobile;
   border-style: solid;
   border-color: #000;
 
@@ -9,15 +11,15 @@
 
   width: $content-width-mobile;
 
-
   // tablet behaviour
   @media only screen and (min-width: $width-tablet) {
+    border-width: $border-width-tablet;
     width: $content-width-tablet;
   }
 
   // desktop behaviour
   @media only screen and (min-width: $width-desktop) {
-    background-color: #0e90d2;
+    border-width: $border-width-tablet;
     width: $content-width-desktop;
   }
 }
