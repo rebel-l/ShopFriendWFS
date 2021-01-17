@@ -1,9 +1,11 @@
 @import '../../variables';
 
-.outer {
+.item {
   border-color: #000;
-  border-style: solid;
-  border-width: 1px;
+  border-top-width: $border-width-mobile;
+  border-bottom-width: $border-width-mobile;
+  border-top-style: solid;
+  border-bottom-style: solid;
   border-collapse: collapse;
 
   width: 100%;
@@ -17,13 +19,18 @@
   height: 100%;
 
   button {
-    width: 9%;
+    width: 15%;
     display: none;
 
     // tablet and above
     @media only screen and (min-width: $width-tablet){
+      width: 9%;
       display: inline;
     }
+  }
+
+  button.contextMenu {
+    display: inline;
   }
 }
 
@@ -45,6 +52,10 @@
 
     height: 100%;
   }
+}
+
+.progressContainer.contextMenu {
+  width: 70%;
 }
 
 .progress {

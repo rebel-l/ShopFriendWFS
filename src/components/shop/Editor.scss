@@ -2,6 +2,7 @@
 
 .editor {
   width: $content-width-mobile;
+  margin-top: 10px;
 
   // tablet behaviour
   @media only screen and (min-width: $width-tablet) {

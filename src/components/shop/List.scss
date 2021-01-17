@@ -4,7 +4,8 @@
 .list {
   border-top-width: $border-width-mobile;
   border-bottom-width: $border-width-mobile;
-  border-style: solid;
+  border-top-style: solid;
+  border-bottom-style: solid;
   border-color: #000;
 
   margin-top: 20px;
@@ -14,12 +15,14 @@
   // tablet behaviour
   @media only screen and (min-width: $width-tablet) {
     border-width: $border-width-tablet;
+    border-style: solid;
     width: $content-width-tablet;
   }
 
   // desktop behaviour
   @media only screen and (min-width: $width-desktop) {
     border-width: $border-width-tablet;
+    border-style: solid;
     width: $content-width-desktop;
   }
 }

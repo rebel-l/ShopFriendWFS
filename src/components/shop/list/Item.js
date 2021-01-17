@@ -34,13 +34,15 @@ class Item extends Component {
         // init state
         this.state = {
             progress: 0 + '%',
-            active: true // TODO: think of using it from item itself?
+            active: true, // TODO: think of using it from item itself?
+            contextMenu: false
         };
 
         // register event handler
         this.handleActivate = this.handleActivate.bind(this);
         this.handleDelete = this.handleDelete.bind(this);
         this.handleEdit = this.handleEdit.bind(this);
+        this.handleSwipe = this.handleSwipe.bind(this);
     }
 
     /**
@@ -83,6 +85,7 @@ class Item extends Component {
      */
     handleEdit() {
         this.props.editItem(this.item);
+        this.setState({contextMenu: false});
     }
 
     /**
@@ -120,6 +123,7 @@ class Item extends Component {
     activate(id) {
         this.props.activateItem(id);
         this.setState({active: true});
+        this.setState({contextMenu: false});
     }
 
     /**
@@ -127,6 +131,7 @@ class Item extends Component {
      */
     deactivate() {
         this.setState({active: false});
+        this.setState({contextMenu: false});
     }
 
     /**
@@ -138,18 +143,37 @@ class Item extends Component {
         return this.state.active;
     }
 
+    /**
+     * handleSwipe opens the context menu as soon as an user swipes on an item.
+     */
+    handleSwipe() {
+        this.setState({contextMenu: true});
+    }
+
     render() {
+        let containerStyle = styles.progressContainer;
+        let contentStyle = this.state.active ? styles.progress : styles.progressInactive;
+        let buttonStyle = '';
+
+        if (this.state.contextMenu) {
+            buttonStyle = styles.contextMenu;
+            containerStyle += ' ' + styles.contextMenu;
+        }
+
         return (
-            <div className={styles.outer}>
+            <div className={styles.item}>
                 <div className={styles.inner}>
-                    <div className={styles.progressContainer} onClick={() => this.handleActivate(this.item.id)}>
-                        <div className={`${this.state.active ? styles.progress : styles.progressInactive}`}
-                             style={{width: this.state.progress}}>
-                            {this.item.toString()}
-                        </div>
+                    <div className={containerStyle}
+                         onClick={() => this.handleActivate(this.item.id)}
+                         onTouchMove={this.handleSwipe}>
+                        <div className={contentStyle} style={{width: this.state.progress}}>{this.item.toString()}</div>
                     </div>
-                    <button onClick={this.handleEdit}>edit</button>
-                    <button onClick={() => this.handleDelete(this.item.id)}>delete</button>
+                    <button onClick={this.handleEdit} className={buttonStyle}>
+                        edit
+                    </button>
+                    <button onClick={() => this.handleDelete(this.item.id)} className={buttonStyle}>
+                        delete
+                    </button>
                 </div>
             </div>
         );
