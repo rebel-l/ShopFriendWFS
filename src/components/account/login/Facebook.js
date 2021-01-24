@@ -1,21 +1,22 @@
+'use strict';
+
 import React, { Component } from 'react';
 import { FacebookProvider, LoginButton } from 'react-facebook';
-import axios from "axios";
+
+import {connect} from 'react-redux';
+import {loginFacebook} from "../../../redux/actions/account/login";
 
 class Facebook extends Component {
+    constructor(props) {
+        super(props);
+
+        // register event handler
+        this.handleError = this.handleError.bind(this);
+        this.handleResponse = this.handleResponse.bind(this);
+    }
+
     handleResponse(response) {
-        // TODO: not part of UI component => move to model or redux store!
-        console.log(response);
-        let data = {
-            'AccessToken': response.tokenDetail.accessToken
-        }
-        axios.put('https://auth.shopfriend.test/public/facebook/login', data)
-            .then(function (response) {
-                console.log(response);
-            })
-            .catch(function (error) {
-                console.log(error);
-            });
+        this.props.loginFacebook(response.tokenDetail.accessToken);
     }
 
     handleError (error) {
@@ -33,4 +34,4 @@ class Facebook extends Component {
     }
 }
 
-export default Facebook;
+export default connect(null, {loginFacebook})(Facebook);

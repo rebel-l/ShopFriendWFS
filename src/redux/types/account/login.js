@@ -1,0 +1,3 @@
+'use strict';
+
+export const ACCOUNT_LOGIN_FACEBOOK = 'ACCOUNT_LOGIN_FACEBOOK';
