@@ -1,0 +1,25 @@
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+
+const mapStateToProps = (state) => {
+    console.log('USER', state);
+    return {
+        user: state.accountUser
+    };
+}
+
+class User extends Component {
+    render() {
+        return (
+            <div>
+                {
+                    this.props.user.first_name !== '' ?
+                        <h1>Hello {this.props.user.first_name}</h1>
+                        : ''
+                }
+            </div>
+        );
+    }
+}
+
+export default connect(mapStateToProps)(User);

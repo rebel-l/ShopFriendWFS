@@ -1,14 +1,14 @@
-'use strict';
+'use strict'; // TODO: still necessary today? => use babel plugin
 
-import {ACCOUNT_LOGIN_FACEBOOK} from "../../types/account/login";
+import {ACCOUNT_USER_LOGGED_IN} from "../../types/account/user";
 
 const initialState = {};
 
 export default function (state = initialState, action) {
     switch (action.type) {
-        case ACCOUNT_LOGIN_FACEBOOK:
-            console.log(action);
-            return state;
+        case ACCOUNT_USER_LOGGED_IN:
+            console.log('REDUCER', action);
+            return action.payload;
         default:
             return state;
     }

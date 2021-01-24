@@ -4,13 +4,13 @@ import React, { Component } from 'react';
 import Facebook from './account/login/Facebook';
 import List from './shop/List';
 import Editor from './shop/Editor';
+import User from "./account/User";
 
 class App extends Component {
     render() {
         return (
             <div>
-                <h1>Hello World</h1>
-                <p>Have fun playing around</p>
+                <User />
                 <Facebook />
                 <Editor />
                 <List />

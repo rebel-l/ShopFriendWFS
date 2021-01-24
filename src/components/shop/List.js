@@ -28,7 +28,7 @@ class List extends Component {
                         this.props.items.map((item) => {
                             return <Item item={item} key={item.getKey()} />;
                         })
-                        : "no items found"
+                        : 'no items found'
                 }
             </div>
         );

@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 import { FacebookProvider, LoginButton } from 'react-facebook';
 
 import {connect} from 'react-redux';
-import {loginFacebook} from "../../../redux/actions/account/login";
+import {loginFacebook} from "../../../redux/actions/account/user";
 
 class Facebook extends Component {
     constructor(props) {
