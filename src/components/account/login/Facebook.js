@@ -4,6 +4,7 @@ import axios from "axios";
 
 class Facebook extends Component {
     handleResponse(response) {
+        // TODO: not part of UI component => move to model or redux store!
         console.log(response);
         let data = {
             'AccessToken': response.tokenDetail.accessToken

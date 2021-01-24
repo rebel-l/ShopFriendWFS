@@ -1,7 +1,7 @@
 'use strict';
 
 import React, { Component } from 'react';
-import Facebook from './Facebook';
+import Facebook from './account/login/Facebook';
 import List from './shop/List';
 import Editor from './shop/Editor';
 
