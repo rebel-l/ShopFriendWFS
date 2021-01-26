@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import IsEmpty from "../../libs/object/empty";
 
 const mapStateToProps = (state) => {
     console.log('USER', state);
@@ -13,7 +14,7 @@ class User extends Component {
         return (
             <div>
                 {
-                    this.props.user.first_name !== '' ?
+                    IsEmpty(this.props.user) === false ?
                         <h1>Hello {this.props.user.first_name}</h1>
                         : ''
                 }
