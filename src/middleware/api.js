@@ -1,5 +1,3 @@
-'use strict';
-
 import axios from "axios";
 
 import {loggedIn} from "../redux/actions/account/user";

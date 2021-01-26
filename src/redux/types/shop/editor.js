@@ -1,5 +1,3 @@
-'use strict';
-
 /**
  * Action to add an item from editor to the list.
  *

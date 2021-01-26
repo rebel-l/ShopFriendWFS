@@ -1,5 +1,3 @@
-'use strict';
-
 /**
  * Action called as soon as the user has logged in.
  *

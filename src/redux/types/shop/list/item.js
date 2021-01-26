@@ -1,5 +1,3 @@
-'use strict';
-
 /**
  * Action type to remove item from list.
  *

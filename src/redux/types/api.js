@@ -1,5 +1,3 @@
-'use strict';
-
 /**
  * Action to interact with the API.
  *

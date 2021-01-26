@@ -1,5 +1,3 @@
-'use strict'; // TODO: still necessary today? => use babel plugin
-
 import {ACCOUNT_USER_LOGGED_IN} from "../../types/account/user";
 
 const initialState = {};

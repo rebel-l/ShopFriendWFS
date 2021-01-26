@@ -1,5 +1,3 @@
-'use strict';
-
 function NewList(items) {
     return {
         items: items,

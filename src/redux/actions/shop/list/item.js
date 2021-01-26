@@ -1,5 +1,3 @@
-'use strict';
-
 import {
     SHOP_LIST_ITEM_EDIT,
     SHOP_LIST_ITEM_REMOVE,

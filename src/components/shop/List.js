@@ -1,5 +1,3 @@
-'use strict';
-
 import React, { Component } from 'react';
 import styles from './List.scss';
 import Item from './list/Item';

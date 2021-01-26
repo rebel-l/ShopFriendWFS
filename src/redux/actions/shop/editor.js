@@ -1,5 +1,3 @@
-'use strict';
-
 import {SHOP_EDITOR_ITEM_ADD, SHOP_EDITOR_ITEM_UPDATE} from "../../types/shop/editor";
 import NewItems from "../../../model/shop/items";
 import NewItem from "../../../model/shop/item";
