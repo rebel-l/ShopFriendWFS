@@ -1,7 +1,10 @@
 import axios from "axios";
 
+import {addNotification} from "../redux/actions/notification";
 import {loggedIn} from "../redux/actions/account/user";
+
 import {API} from "../redux/types/api";
+import {NewError} from "../model/notification";
 
 /**
  * Placeholder where to replace service name.
@@ -52,7 +55,7 @@ const api = ({dispatch}) => next => action => {
         dispatch(loggedIn(data));
     })
     .catch(error => {
-        console.log(error);
+        dispatch(addNotification(NewError(error.message)));
     });
 }
 
