@@ -4,6 +4,9 @@ import { FacebookProvider, LoginButton } from 'react-facebook';
 import {connect} from 'react-redux';
 import {loginFacebook} from "../../../redux/actions/account/user";
 
+/**
+ * Facebook is the UI component to make a login via facebook.
+ */
 class Facebook extends Component {
     constructor(props) {
         super(props);
@@ -13,10 +16,20 @@ class Facebook extends Component {
         this.handleResponse = this.handleResponse.bind(this);
     }
 
+    /**
+     * Handles the response of the external facebook component and sends the received token to auth backend.
+     *
+     * @param response
+     */
     handleResponse(response) {
         this.props.loginFacebook(response.tokenDetail.accessToken);
     }
 
+    /**
+     * Handles the error of the external facebook component.
+     *
+     * @param error
+     */
     handleError (error) {
         console.log(error);
     }

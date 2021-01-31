@@ -35,9 +35,8 @@ const api = ({dispatch}) => next => action => {
 
     let errs = validatePayload(action.payload);
     if (errs.length > 0) {
-        console.log('error parsing API payload', errs);
+        dispatch(addNotification(NewError('error parsing API payload')));
         return;
-        // TODO: dispatch error!
     }
 
     const dataOrParams = ["GET", "DELETE"].includes(action.payload.method) ? "params" : "data";
