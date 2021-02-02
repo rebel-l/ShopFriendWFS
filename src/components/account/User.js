@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import IsEmpty from "../../libs/object/empty";
 
 const mapStateToProps = (state) => {
-    console.log('USER', state); // TODO: remove
     return {
         user: state.accountUser
     };

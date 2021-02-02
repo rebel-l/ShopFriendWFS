@@ -1,9 +1,14 @@
 import React, { Component } from 'react';
-import Facebook from './account/login/Facebook';
-import List from './shop/List';
-import Editor from './shop/Editor';
-import User from "./account/User";
+
 import Notification from "./Notification";
+import Spinner from "./Spinner";
+
+import Facebook from './account/login/Facebook';
+
+import Editor from './shop/Editor';
+import List from './shop/List';
+
+import User from "./account/User";
 
 class App extends Component {
     render() {
@@ -14,6 +19,7 @@ class App extends Component {
                 <Editor />
                 <List />
                 <Notification />
+                <Spinner />
             </div>
         );
     }

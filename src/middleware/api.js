@@ -2,6 +2,7 @@ import axios from "axios";
 
 import {addNotification} from "../redux/actions/notification";
 import {loggedIn} from "../redux/actions/account/user";
+import {startSpinner, stopSpinner} from "../redux/actions/spinner";
 
 import {API} from "../redux/types/api";
 import {NewError} from "../model/notification";
@@ -33,6 +34,8 @@ const api = ({dispatch}) => next => action => {
 
     if (action.type !== API) return;
 
+    dispatch(startSpinner());
+
     let errs = validatePayload(action.payload);
     if (errs.length > 0) {
         dispatch(addNotification(NewError('error parsing API payload')));
@@ -41,20 +44,18 @@ const api = ({dispatch}) => next => action => {
 
     const dataOrParams = ["GET", "DELETE"].includes(action.payload.method) ? "params" : "data";
 
-    console.log('API MIDDLEWARE', action); // TODO: remove
-
     axios.defaults.headers.common['Content-Type'] = 'application/json;charset=UTF-8';
 
     axios.request({
         url: getURL(action.payload),
         method: action.payload.method,
         [dataOrParams]: action.payload.data
-    })
-    .then(({data}) => {
+    }).then(({data}) => {
         dispatch(loggedIn(data));
-    })
-    .catch(error => {
+    }).catch(error => {
         dispatch(addNotification(NewError(error.message)));
+    }).finally(() => {
+        dispatch(stopSpinner());
     });
 }
 
