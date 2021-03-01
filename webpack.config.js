@@ -4,7 +4,7 @@ const WebpackPwaManifest = require('webpack-pwa-manifest');
 module.exports = {
     mode: 'development',    // TODO: separate production and development
     entry: {
-        app: './src/index.js'
+        app: './src/index.jsx'
     },
     devtool: 'source-map',
     module: {
