@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 
 import { deleteNotifications } from "../redux/actions/notification";
 import { ERROR } from "../model/notification";
+
 import PropTypes from "prop-types";
 
 import styles from "./Notification.scss";

@@ -3,7 +3,7 @@ import Facebook from "./account/login/Facebook";
 import List from "./shop/List";
 import Notification from "./Notification.jsx";
 import React from "react";
-import Spinner from "./Spinner";
+import Spinner from "./Spinner.jsx";
 import User from "./account/User";
 
 function App () {

@@ -1,13 +1,19 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+
+import PropTypes from "prop-types";
+
 import styles from "./Spinner.scss";
 
-/**
- * Delay rendering of the spinner to avoid flickering on fast XHR requests.
- *
- * @type {number}
- */
-const delay = 300,
+const
+
+    /**
+     * Delay rendering of the spinner to avoid flickering on fast XHR requests.
+     *
+     * @type {number}
+     */
+    delay = 300,
+    label = "Spinner...",
     mapStateToProps = (state) => ({ "spinner": state.spinner });
 
 /**
@@ -26,17 +32,27 @@ class Spinner extends Component {
         this.timer = null;
     }
 
+    shouldComponentUpdate (nextProps, nextState) {
+        const
+            { spinner } = this.props,
+            { style } = this.state;
+
+        return spinner !== nextProps.spinner || style !== nextState.style;
+    }
+
     componentDidUpdate () {
-        if (this.props.spinner === false) {
+        const
+            { spinner } = this.props,
+            self = this;
+
+        if (spinner === false) {
             clearTimeout(this.timer);
 
             return;
         }
 
-        const that = this;
-
         this.timer = setTimeout(() => {
-            that.show();
+            self.show();
         }, delay);
     }
 
@@ -48,18 +64,25 @@ class Spinner extends Component {
     }
 
     render () {
-        if (this.props.spinner === false) {
+        const
+            { spinner } = this.props,
+            { style } = this.state;
+
+
+        if (spinner === false) {
             return null;
         }
 
         return (
-            <div className={this.state.style}>
+            <div className={style}>
                 <div>
-                    Spinner...
+                    {label}
                 </div>
             </div>
         );
     }
 }
+
+Spinner.propTypes = { "spinner": PropTypes.bool.isRequired };
 
 export default connect(mapStateToProps)(Spinner);
