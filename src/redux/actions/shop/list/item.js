@@ -1,9 +1,9 @@
 import {
+    SHOP_LIST_ITEM_ACTIVATE,
+    SHOP_LIST_ITEM_DEACTIVATE,
     SHOP_LIST_ITEM_EDIT,
     SHOP_LIST_ITEM_REMOVE,
-    SHOP_LIST_ITEM_ACTIVATE,
-    SHOP_LIST_ITEM_DEACTIVATE
-} from '../../../types/shop/list/item';
+} from "../../../types/shop/list/item";
 
 /**
  * Sets the item to edit on the redux store.
@@ -11,10 +11,10 @@ import {
  * @param item
  * @returns {{payload, type: string}}
  */
-export function editItem(item) {
+export function editItem (item) {
     return {
-        type: SHOP_LIST_ITEM_EDIT,
-        payload: item
+        "type": SHOP_LIST_ITEM_EDIT,
+        "payload": item,
     };
 }
 
@@ -24,10 +24,10 @@ export function editItem(item) {
  * @param id
  * @returns {{payload, type: string}}
  */
-export function removeItem(id) {
+export function removeItem (id) {
     return {
-        type: SHOP_LIST_ITEM_REMOVE,
-        payload: id
+        "type": SHOP_LIST_ITEM_REMOVE,
+        "payload": id,
     };
 }
 
@@ -37,11 +37,11 @@ export function removeItem(id) {
  * @param id {number|string}
  * @returns {{payload, type: string}}
  */
-export function deactivateItem(id) {
+export function deactivateItem (id) {
     return {
-        type: SHOP_LIST_ITEM_DEACTIVATE,
-        payload: id
-    }
+        "type": SHOP_LIST_ITEM_DEACTIVATE,
+        "payload": id,
+    };
 }
 
 /**
@@ -50,9 +50,9 @@ export function deactivateItem(id) {
  * @param id {number|string}
  * @returns {{payload, type: string}}
  */
-export function activateItem(id) {
+export function activateItem (id) {
     return {
-        type: SHOP_LIST_ITEM_ACTIVATE,
-        payload: id
-    }
+        "type": SHOP_LIST_ITEM_ACTIVATE,
+        "payload": id,
+    };
 }

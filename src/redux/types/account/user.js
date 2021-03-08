@@ -3,4 +3,4 @@
  *
  * @type {string}
  */
-export const ACCOUNT_USER_LOGGED_IN = 'ACCOUNT_USER_LOGGED_IN';
+export const ACCOUNT_USER_LOGGED_IN = "ACCOUNT_USER_LOGGED_IN";

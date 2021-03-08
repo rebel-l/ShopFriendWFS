@@ -1,4 +1,4 @@
-import {SHOP_EDITOR_ITEM_ADD, SHOP_EDITOR_ITEM_UPDATE} from "../../types/shop/editor";
+import { SHOP_EDITOR_ITEM_ADD, SHOP_EDITOR_ITEM_UPDATE } from "../../types/shop/editor";
 import NewItems from "../../../model/shop/items";
 import NewItem from "../../../model/shop/item";
 
@@ -8,10 +8,10 @@ import NewItem from "../../../model/shop/item";
  * @param content
  * @returns {{payload: *[], type: string}}
  */
-export function addItem(content) {
+export function addItem (content) {
     return {
-        type: SHOP_EDITOR_ITEM_ADD,
-        payload: NewItems(content)
+        "type": SHOP_EDITOR_ITEM_ADD,
+        "payload": NewItems(content),
     };
 }
 
@@ -22,13 +22,14 @@ export function addItem(content) {
  * @param content
  * @returns {{payload: {amount: (string|null), name: (string|*), active: boolean, id: number}, type: string}}
  */
-export function updateItem(id, content) {
+export function updateItem (id, content) {
     // TODO: only first item can be editable, if we get more items comma separated we should add them as new ones
-    let item = NewItem(content);
+    const item = NewItem(content);
+
     item.id = id;
 
     return {
-        type: SHOP_EDITOR_ITEM_UPDATE,
-        payload: item
-    }
+        "type": SHOP_EDITOR_ITEM_UPDATE,
+        "payload": item,
+    };
 }

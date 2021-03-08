@@ -1,4 +1,4 @@
-import {SPINNER_START, SPINNER_STOP} from "../types/spinner";
+import { SPINNER_START, SPINNER_STOP } from "../types/spinner";
 
 const initialState = false;
 
@@ -11,11 +11,13 @@ const initialState = false;
  */
 export default function (state = initialState, action) {
     switch (action.type) {
-        case SPINNER_START:
-            return true;
-        case SPINNER_STOP:
-            return false;
-        default:
-            return state;
+    case SPINNER_START:
+        return true;
+
+    case SPINNER_STOP:
+        return false;
+
+    default:
+        return state;
     }
 }

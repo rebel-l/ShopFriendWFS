@@ -1,5 +1,5 @@
 /**
- * id is a global (temporary) autoincrement to identify the items in the frontend.
+ * Id is a global (temporary) autoincrement to identify the items in the frontend.
  *
  * @type {number}
  */
@@ -13,47 +13,48 @@ let id = 0;
  * @constructor
  * @throws error if name is no identified
  */
-function NewItem(content) {
-    let data = content.split(':');
+function NewItem (content) {
+    const data = content.split(":");
 
     return {
-        id: id++,
-        name: data.length > 0 ? data[0].trim() : '',
-        amount: data.length > 1 ? data[1].trim() : null,
-        active: true,
+        "id": id++,
+        "name": data.length > 0 ? data[0].trim() : "",
+        "amount": data.length > 1 ? data[1].trim() : null,
+        "active": true,
         toString,
         activate,
         deactivate,
-        getKey
-    }
+        getKey,
+    };
 }
 
 /**
- * toString returns the name and the amount of an item like it is represented in frontend.
+ * ToString returns the name and the amount of an item like it is represented in frontend.
  *
  * @returns {string}
  */
-function toString() {
-    let amount = this.amount !== null ? ':' + this.amount : '';
+function toString () {
+    const amount = this.amount !== null ? `:${this.amount}` : "";
+
     return this.name + amount;
 }
 
 /**
- * deactivate the item
+ * Deactivate the item
  */
-function deactivate() {
+function deactivate () {
     this.active = false;
 }
 
 /**
- * activate the item
+ * Activate the item
  */
-function activate() {
+function activate () {
     this.active = true;
 }
 
-function getKey() {
-    return this.id + '-' + this.name + '-' + this.amount; // TODO: use a hash
+function getKey () {
+    return `${this.id}-${this.name}-${this.amount}`; // TODO: use a hash
 }
 
 export default NewItem;

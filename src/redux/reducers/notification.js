@@ -1,4 +1,4 @@
-import {NOTIFICATION_ADD, NOTIFICATION_DELETE} from "../types/notification";
+import { NOTIFICATION_ADD, NOTIFICATION_DELETE } from "../types/notification";
 
 const initialState = [];
 
@@ -11,11 +11,16 @@ const initialState = [];
  */
 export default function (state = initialState, action) {
     switch (action.type) {
-        case NOTIFICATION_ADD:
-            return [...state, ...action.payload];
-        case NOTIFICATION_DELETE:
-            return initialState;
-        default:
-            return state;
+    case NOTIFICATION_ADD:
+        return [
+            ...state,
+            ...action.payload,
+        ];
+
+    case NOTIFICATION_DELETE:
+        return initialState;
+
+    default:
+        return state;
     }
 }

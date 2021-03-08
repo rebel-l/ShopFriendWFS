@@ -1,14 +1,12 @@
-import {SPINNER_START, SPINNER_STOP} from "../types/spinner";
+import { SPINNER_START, SPINNER_STOP } from "../types/spinner";
 
 /**
  * Starts spinner.
  *
  * @returns {{type: string}}
  */
-export function startSpinner() {
-    return {
-        type: SPINNER_START
-    };
+export function startSpinner () {
+    return { "type": SPINNER_START };
 }
 
 /**
@@ -16,8 +14,6 @@ export function startSpinner() {
  *
  * @returns {{type: string}}
  */
-export function stopSpinner() {
-    return {
-      type: SPINNER_STOP
-    };
+export function stopSpinner () {
+    return { "type": SPINNER_STOP };
 }

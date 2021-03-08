@@ -1,4 +1,4 @@
-export const ERROR = 'ERROR';
+export const ERROR = "ERROR";
 
 /**
  * Returns a new notification of type error.
@@ -7,9 +7,9 @@ export const ERROR = 'ERROR';
  * @returns {{type: string, message}}
  * @constructor
  */
-export function NewError(message) {
+export function NewError (message) {
     return {
-        type: ERROR,
-        message: message
-    }
+        "type": ERROR,
+        message,
+    };
 }

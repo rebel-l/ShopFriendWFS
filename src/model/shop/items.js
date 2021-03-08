@@ -8,14 +8,15 @@ import NewItem from "./item";
  * @constructor
  * @throws error if item has no name
  */
-function NewItems(content) {
-    let data = content.split(',');
-    let items = [];
+function NewItems (content) {
+    const data = content.split(","),
+        items = [];
 
     for (let i = 0; i < data.length; i++) {
-        let item = data[i].trim();
-        if (item === '') {
-            continue;   // empty items are skipped
+        const item = data[i].trim();
+
+        if (item === "") {
+            continue; // Empty items are skipped
         }
 
         items.push(NewItem(item));

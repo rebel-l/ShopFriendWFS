@@ -1,17 +1,17 @@
-import React, { Component } from 'react';
-import { FacebookProvider, LoginButton } from 'react-facebook';
+import React, { Component } from "react";
+import { FacebookProvider, LoginButton } from "react-facebook";
 
-import {connect} from 'react-redux';
-import {loginFacebook} from "../../../redux/actions/account/user";
+import { connect } from "react-redux";
+import { loginFacebook } from "../../../redux/actions/account/user";
 
 /**
  * Facebook is the UI component to make a login via facebook.
  */
 class Facebook extends Component {
-    constructor(props) {
+    constructor (props) {
         super(props);
 
-        // register event handler
+        // Register event handler
         this.handleError = this.handleError.bind(this);
         this.handleResponse = this.handleResponse.bind(this);
     }
@@ -21,7 +21,7 @@ class Facebook extends Component {
      *
      * @param response
      */
-    handleResponse(response) {
+    handleResponse (response) {
         this.props.loginFacebook(response.tokenDetail.accessToken);
     }
 
@@ -34,15 +34,20 @@ class Facebook extends Component {
         console.log(error);
     }
 
-    render() {
+    render () {
         return (
             <FacebookProvider appId="1465803870260439">
-                <LoginButton scope="public_profile,email" onCompleted={this.handleResponse} onError={this.handleError}>
-                    <span>Login via Facebook</span>
+                <LoginButton onCompleted={this.handleResponse}
+                    onError={this.handleError}
+                    scope="public_profile,email"
+                >
+                    <span>
+                        Login via Facebook
+                    </span>
                 </LoginButton>
             </FacebookProvider>
         );
     }
 }
 
-export default connect(null, {loginFacebook})(Facebook);
+export default connect(null, { loginFacebook })(Facebook);

@@ -1,5 +1,5 @@
-import {API} from "../../types/api";
-import {ACCOUNT_USER_LOGGED_IN} from "../../types/account/user";
+import { API } from "../../types/api";
+import { ACCOUNT_USER_LOGGED_IN } from "../../types/account/user";
 
 /**
  * Triggers the XHR call to login with facebook.
@@ -7,18 +7,16 @@ import {ACCOUNT_USER_LOGGED_IN} from "../../types/account/user";
  * @param accessToken
  * @returns {{payload: {path: string, method: string, service: string}, type: string}}
  */
-export function loginFacebook(accessToken) {
+export function loginFacebook (accessToken) {
     return {
-        type: API,
-        payload: {
-            method: 'PUT',
-            service: 'auth',
-            path: '/public/facebook/login',
-            data: {
-                'AccessToken': accessToken
-            }
-        }
-    }
+        "type": API,
+        "payload": {
+            "method": "PUT",
+            "service": "auth",
+            "path": "/public/facebook/login",
+            "data": { "AccessToken": accessToken },
+        },
+    };
 }
 
 /**
@@ -27,9 +25,9 @@ export function loginFacebook(accessToken) {
  * @param user
  * @returns {{payload, type: string}}
  */
-export function loggedIn(user) {
+export function loggedIn (user) {
     return {
-        type: ACCOUNT_USER_LOGGED_IN,
-        payload: user
+        "type": ACCOUNT_USER_LOGGED_IN,
+        "payload": user,
     };
 }

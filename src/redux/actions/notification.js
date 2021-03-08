@@ -1,4 +1,4 @@
-import {NOTIFICATION_ADD, NOTIFICATION_DELETE} from "../types/notification";
+import { NOTIFICATION_ADD, NOTIFICATION_DELETE } from "../types/notification";
 
 /**
  * Sends notifications to the user.
@@ -6,15 +6,15 @@ import {NOTIFICATION_ADD, NOTIFICATION_DELETE} from "../types/notification";
  * @param message
  * @returns {{payload: *[], type: string}}
  */
-export function addNotification(message) {
+export function addNotification (message) {
     if (Array.isArray(message) === false) {
         message = [message];
     }
 
     return {
-        type: NOTIFICATION_ADD,
-        payload: message
-    }
+        "type": NOTIFICATION_ADD,
+        "payload": message,
+    };
 }
 
 /**
@@ -22,8 +22,6 @@ export function addNotification(message) {
  *
  * @returns {{type: string}}
  */
-export function deleteNotifications() {
-    return {
-        type: NOTIFICATION_DELETE
-    }
+export function deleteNotifications () {
+    return { "type": NOTIFICATION_DELETE };
 }

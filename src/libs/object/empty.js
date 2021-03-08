@@ -6,9 +6,11 @@
  * @constructor
  */
 const IsEmpty = (obj) => {
-    for(let i in obj) return false;
+    for (const i in obj) {
+        return false;
+    }
 
     return true;
-}
+};
 
 export default IsEmpty;
