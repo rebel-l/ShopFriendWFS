@@ -4,7 +4,7 @@ import List from "./shop/List";
 import Notification from "./Notification.jsx";
 import React from "react";
 import Spinner from "./Spinner.jsx";
-import User from "./account/User";
+import User from "./account/User.jsx";
 
 function App () {
     return (

@@ -5,7 +5,8 @@
  * @returns {boolean}
  * @constructor
  */
-const IsEmpty = (obj) => {
+const isEmpty = (obj) => {
+    // eslint-disable-next-line guard-for-in,no-unreachable-loop
     for (const i in obj) {
         return false;
     }
@@ -13,4 +14,4 @@ const IsEmpty = (obj) => {
     return true;
 };
 
-export default IsEmpty;
+export default isEmpty;
