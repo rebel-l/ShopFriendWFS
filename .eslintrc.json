@@ -28,6 +28,9 @@
     "array-bracket-spacing": "error",
     "array-callback-return": "error",
     "array-element-newline": "error",
+    "arrow-body-style": "error",
+    "arrow-parens": "error",
+    "arrow-spacing": "error",
     "block-scoped-var": "error",
     "block-spacing": "error",
     "brace-style": "error",
@@ -73,6 +76,7 @@
       "consistent"
     ],
     "function-paren-newline": "error",
+    "generator-star-spacing": "error",
     "grouped-accessor-pairs": "error",
     "guard-for-in": "error",
     "id-denylist": [
@@ -143,9 +147,11 @@
     "no-alert": "error",
     "no-await-in-loop": "error",
     "no-caller": "error",
+    "no-confusing-arrow": "error",
     "no-console": "error",
     "no-constructor-return": "error",
     "no-div-regex": "error",
+    "no-duplicate-imports": "error",
     "no-else-return": "error",
     "no-empty-function": "error",
     "no-eq-null": "error",
@@ -212,8 +218,17 @@
     "no-use-before-define": "error",
     "no-useless-backreference": "error",
     "no-useless-call": "error",
+    "no-useless-computed-key": [
+      "error",
+      {
+        "enforceForClassMembers": true
+      }
+    ],
     "no-useless-concat": "error",
+    "no-useless-constructor": "error",
+    "no-useless-rename": "error",
     "no-useless-return": "error",
+    "no-var": "error",
     "no-void": "error",
     "no-warning-comments": "error",
     "no-whitespace-before-property": "error",
@@ -229,6 +244,7 @@
       "always"
     ],
     "object-property-newline": "error",
+    "object-shorthand": "error",
     "one-var": "error",
     "one-var-declaration-per-line": "error",
     "operator-assignment": "error",
@@ -278,11 +294,16 @@
         "next": "*"
       }
     ],
+    "prefer-arrow-callback": "error",
+    "prefer-const": "error",
     "prefer-exponentiation-operator": "warn",
     "prefer-named-capture-group": "error",
     "prefer-object-spread": "error",
     "prefer-promise-reject-errors": "error",
     "prefer-regex-literals": "error",
+    "prefer-rest-params": "error",
+    "prefer-spread": "error",
+    "prefer-template": "error",
     "quote-props": "error",
     "quotes": "error",
     "radix": "warn",
@@ -336,9 +357,16 @@
     "require-atomic-updates": "error",
     "require-await": "error",
     "require-unicode-regexp": "error",
+    "rest-spread-spacing": "error",
     "semi": "error",
     "semi-spacing": "error",
     "semi-style": "error",
+    "sort-imports": [
+      "error",
+      {
+        "ignoreCase": true
+      }
+    ],
     "sort-keys": [
       "error",
       "asc",
@@ -359,11 +387,14 @@
     "space-unary-ops": "error",
     "spaced-comment": "error",
     "switch-colon-spacing": "error",
+    "symbol-description": "error",
+    "template-curly-spacing": "error",
     "template-tag-spacing": "warn",
     "unicode-bom": "error",
     "vars-on-top": "error",
     "wrap-iife": "error",
     "wrap-regex": "error",
+    "yield-star-spacing": "error",
     "yoda": "error"
   },
   "settings": {

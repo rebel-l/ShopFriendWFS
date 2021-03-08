@@ -1,13 +1,9 @@
-import React from "react";
-
-import Notification from "./Notification";
-import Spinner from "./Spinner";
-
-import Facebook from "./account/login/Facebook";
-
 import Editor from "./shop/Editor";
+import Facebook from "./account/login/Facebook";
 import List from "./shop/List";
-
+import Notification from "./Notification";
+import React from "react";
+import Spinner from "./Spinner";
 import User from "./account/User";
 
 function App () {
