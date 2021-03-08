@@ -10,7 +10,7 @@ import List from "./shop/List";
 
 import User from "./account/User";
 
-function App() {
+function App () {
     return (
         <div>
             <User />

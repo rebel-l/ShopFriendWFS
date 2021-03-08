@@ -136,6 +136,10 @@
       "error",
       "always-multiline"
     ],
+    "new-cap": "error",
+    "new-parens": "error",
+    "newline-per-chained-call": "error",
+    "no-array-constructor": "error",
     "no-alert": "error",
     "no-await-in-loop": "error",
     "no-caller": "error",
@@ -158,14 +162,23 @@
     "no-iterator": "error",
     "no-labels": "error",
     "no-label-var": "error",
+    "no-inline-comments": "error",
     "no-lone-blocks": "error",
+    "no-lonely-if": "error",
     "no-loop-func": "error",
     "no-loss-of-precision": "error",
     "no-magic-numbers": "error",
+    "no-mixed-operators": "warn",
+    "no-mixed-spaces-and-tabs": "error",
+    "no-multi-assign": "error",
+    "no-multiple-empty-lines": "warn",
     "no-multi-spaces": "error",
     "no-multi-str": "error",
+    "no-negated-condition": "error",
+    "no-nested-ternary": "error",
     "no-new": "error",
     "no-new-func": "error",
+    "no-new-object": "error",
     "no-new-wrappers": "error",
     "no-nonoctal-decimal-escape": "error",
     "no-octal-escape": "error",
@@ -179,11 +192,20 @@
     "no-self-compare": "error",
     "no-sequences": "error",
     "no-shadow": "error",
+    "no-tabs": "error",
     "no-template-curly-in-string": "error",
     "no-throw-literal": "error",
+    "no-trailing-spaces": "error",
     "no-undef-init": "error",
     "no-undefined": "error",
+    "no-underscore-dangle": [
+      "error",
+      {
+        "allowFunctionParams": false
+      }
+    ],
     "no-unmodified-loop-condition": "error",
+    "no-unneeded-ternary": "error",
     "no-unreachable-loop": "error",
     "no-unsafe-optional-chaining": "error",
     "no-unused-expressions": "error",
@@ -194,9 +216,74 @@
     "no-useless-return": "error",
     "no-void": "error",
     "no-warning-comments": "error",
+    "no-whitespace-before-property": "error",
+    "nonblock-statement-body-position": "error",
+    "object-curly-newline": [
+      "error",
+      {
+        "multiline": true
+      }
+    ],
+    "object-curly-spacing": [
+      "error",
+      "always"
+    ],
+    "object-property-newline": "error",
+    "one-var": "error",
+    "one-var-declaration-per-line": "error",
+    "operator-assignment": "error",
+    "operator-linebreak": [
+      "error",
+      "after"
+    ],
+    "padded-blocks": [
+      "error",
+      "never"
+    ],
+    "padding-line-between-statements": [
+      "error",
+      {
+        "blankLine": "always",
+        "prev": "*",
+        "next": "return"
+      },
+      {
+        "blankLine": "always",
+        "prev": [
+          "const",
+          "let",
+          "var"
+        ],
+        "next": "*"
+      },
+      {
+        "blankLine": "any",
+        "prev": [
+          "const",
+          "let",
+          "var"
+        ],
+        "next": [
+          "const",
+          "let",
+          "var"
+        ]
+      },
+      {
+        "blankLine": "always",
+        "prev": [
+          "case",
+          "default"
+        ],
+        "next": "*"
+      }
+    ],
+    "prefer-exponentiation-operator": "warn",
     "prefer-named-capture-group": "error",
+    "prefer-object-spread": "error",
     "prefer-promise-reject-errors": "error",
     "prefer-regex-literals": "error",
+    "quote-props": "error",
     "quotes": "error",
     "radix": "warn",
     "react/boolean-prop-naming": "error",
@@ -249,8 +336,34 @@
     "require-atomic-updates": "error",
     "require-await": "error",
     "require-unicode-regexp": "error",
+    "semi": "error",
+    "semi-spacing": "error",
+    "semi-style": "error",
+    "sort-keys": [
+      "error",
+      "asc",
+      {
+        "caseSensitive": false
+      }
+    ],
+    "sort-vars": [
+      "error",
+      {
+        "ignoreCase": true
+      }
+    ],
+    "space-before-blocks": "error",
+    "space-before-function-paren": "error",
+    "space-in-parens": "error",
+    "space-infix-ops": "error",
+    "space-unary-ops": "error",
+    "spaced-comment": "error",
+    "switch-colon-spacing": "error",
+    "template-tag-spacing": "warn",
+    "unicode-bom": "error",
     "vars-on-top": "error",
     "wrap-iife": "error",
+    "wrap-regex": "error",
     "yoda": "error"
   },
   "settings": {
