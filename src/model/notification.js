@@ -7,7 +7,7 @@ export const ERROR = "ERROR";
  * @returns {{type: string, message}}
  * @constructor
  */
-export function NewError (message) {
+export function newError (message) {
     return {
         "type": ERROR,
         message,

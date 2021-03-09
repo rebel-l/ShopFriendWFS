@@ -1,8 +1,12 @@
-import React, { Component } from "react";
 import { FacebookProvider, LoginButton } from "react-facebook";
-
+import React, { Component } from "react";
+import { addNotification } from "../../../redux/actions/notification";
 import { connect } from "react-redux";
 import { loginFacebook } from "../../../redux/actions/account/user";
+import { newError } from "../../../model/notification";
+import PropTypes from "prop-types";
+
+const label = "Login via Facebook";
 
 /**
  * Facebook is the UI component to make a login via facebook.
@@ -16,12 +20,17 @@ class Facebook extends Component {
         this.handleResponse = this.handleResponse.bind(this);
     }
 
+    shouldComponentUpdate () {
+        return false;
+    }
+
     /**
      * Handles the response of the external facebook component and sends the received token to auth backend.
      *
      * @param response
      */
     handleResponse (response) {
+        // eslint-disable-next-line react/destructuring-assignment
         this.props.loginFacebook(response.tokenDetail.accessToken);
     }
 
@@ -31,7 +40,8 @@ class Facebook extends Component {
      * @param error
      */
     handleError (error) {
-        console.log(error);
+        // eslint-disable-next-line react/destructuring-assignment
+        this.props.addNotification(newError(error.message));
     }
 
     render () {
@@ -42,7 +52,7 @@ class Facebook extends Component {
                     scope="public_profile,email"
                 >
                     <span>
-                        Login via Facebook
+                        {label}
                     </span>
                 </LoginButton>
             </FacebookProvider>
@@ -50,4 +60,12 @@ class Facebook extends Component {
     }
 }
 
-export default connect(null, { loginFacebook })(Facebook);
+Facebook.propTypes = {
+    "addNotification": PropTypes.func.isRequired,
+    "loginFacebook": PropTypes.func.isRequired,
+};
+
+export default connect(null, {
+    addNotification,
+    loginFacebook,
+})(Facebook);

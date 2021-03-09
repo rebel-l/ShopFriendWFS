@@ -1,5 +1,5 @@
 import Editor from "./shop/Editor";
-import Facebook from "./account/login/Facebook";
+import Facebook from "./account/login/Facebook.jsx";
 import List from "./shop/List";
 import Notification from "./Notification.jsx";
 import React from "react";

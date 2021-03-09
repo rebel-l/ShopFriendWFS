@@ -36,7 +36,14 @@
     "brace-style": "error",
     "camelcase": "error",
     "capitalized-comments": "error",
-    "class-methods-use-this": "error",
+    "class-methods-use-this": [
+      "error",
+      {
+        "exceptMethods": [
+          "shouldComponentUpdate"
+        ]
+      }
+    ],
     "comma-dangle": [
       "error",
       "always-multiline"
