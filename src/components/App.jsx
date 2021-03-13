@@ -1,4 +1,4 @@
-import Editor from "./shop/Editor";
+import Editor from "./shop/Editor.jsx";
 import Facebook from "./account/login/Facebook.jsx";
 import List from "./shop/List";
 import Notification from "./Notification.jsx";
