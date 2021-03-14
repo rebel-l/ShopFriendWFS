@@ -1,3 +1,7 @@
+const
+    first = 0,
+    second = 1;
+
 /**
  * Id is a global (temporary) autoincrement to identify the items in the frontend.
  *
@@ -14,47 +18,50 @@ let id = 0;
  * @throws error if name is no identified
  */
 function NewItem (content) {
-    const data = content.split(":");
+    const item = content.split(":");
 
     return {
         "id": id++,
-        "name": data.length > 0 ? data[0].trim() : "",
-        "amount": data.length > 1 ? data[1].trim() : null,
+        "name": item.length > first ? item[first].trim() : "",
+        "amount": item.length > second ? item[second].trim() : null,
         "active": true,
-        toString,
-        activate,
-        deactivate,
-        getKey,
+
+        /**
+         * Activate the item
+         */
+        activate () {
+            this.active = true;
+        },
+
+        /**
+         * Deactivate the item
+         */
+        deactivate () {
+            this.active = false;
+        },
+
+        /**
+         * Returns a unique key for this item.
+         *
+         * @returns {string}
+         */
+        getKey () {
+            // eslint-disable-next-line no-warning-comments
+            // TODO: use a hash
+            return `${this.id}-${this.name}-${this.amount}`;
+        },
+
+        /**
+         * ToString returns the name and the amount of an item like it is represented in frontend.
+         *
+         * @returns {string}
+         */
+        toString () {
+            const amount = this.amount === null ? "" : `:${this.amount}`;
+
+            return this.name + amount;
+        },
     };
-}
-
-/**
- * ToString returns the name and the amount of an item like it is represented in frontend.
- *
- * @returns {string}
- */
-function toString () {
-    const amount = this.amount !== null ? `:${this.amount}` : "";
-
-    return this.name + amount;
-}
-
-/**
- * Deactivate the item
- */
-function deactivate () {
-    this.active = false;
-}
-
-/**
- * Activate the item
- */
-function activate () {
-    this.active = true;
-}
-
-function getKey () {
-    return `${this.id}-${this.name}-${this.amount}`; // TODO: use a hash
 }
 
 export default NewItem;
