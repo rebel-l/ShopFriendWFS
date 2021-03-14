@@ -1,3 +1,5 @@
+/* eslint-disable default-param-last */
+
 import { NOTIFICATION_ADD, NOTIFICATION_DELETE } from "../types/notification";
 
 const initialState = [];
@@ -9,7 +11,7 @@ const initialState = [];
  * @param action
  * @returns {[]|*[]}
  */
-export default function (state = initialState, action) {
+export function notification (state = initialState, action) {
     switch (action.type) {
     case NOTIFICATION_ADD:
         return [

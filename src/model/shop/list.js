@@ -1,4 +1,4 @@
-function NewList (items) {
+function newList (items) {
     return {
         items,
 
@@ -39,4 +39,4 @@ function NewList (items) {
     };
 }
 
-export default NewList;
+export default newList;

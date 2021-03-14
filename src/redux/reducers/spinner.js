@@ -1,3 +1,5 @@
+/* eslint-disable default-param-last */
+
 import { SPINNER_START, SPINNER_STOP } from "../types/spinner";
 
 const initialState = false;
@@ -9,7 +11,7 @@ const initialState = false;
  * @param action
  * @returns {boolean}
  */
-export default function (state = initialState, action) {
+export function spinner (state = initialState, action) {
     switch (action.type) {
     case SPINNER_START:
         return true;

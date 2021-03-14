@@ -1,3 +1,5 @@
+/* eslint-disable default-param-last */
+
 import { SHOP_LIST_ITEM_EDIT } from "../../types/shop/list/item";
 
 const initialState = {};
@@ -9,7 +11,7 @@ const initialState = {};
  * @param action
  * @returns {{}|*}
  */
-export default function (state = initialState, action) {
+export function shopEditor (state = initialState, action) {
     switch (action.type) {
     case SHOP_LIST_ITEM_EDIT:
         return action.payload;

@@ -1,3 +1,5 @@
+/* eslint-disable default-param-last */
+
 import { ACCOUNT_USER_LOGGED_IN } from "../../types/account/user";
 
 const initialState = {};
@@ -9,7 +11,7 @@ const initialState = {};
  * @param action
  * @returns {{}|*}
  */
-export default function (state = initialState, action) {
+export function accountUser (state = initialState, action) {
     switch (action.type) {
     case ACCOUNT_USER_LOGGED_IN:
         return action.payload;

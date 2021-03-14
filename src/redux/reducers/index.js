@@ -1,13 +1,13 @@
+import { accountUser } from "./account/user";
+
 import { combineReducers } from "redux";
 
-import accountUser from "./account/user";
+import { notification } from "./notification";
 
-import notification from "./notification";
+import { shopEditor } from "./shop/editor";
+import { shopList } from "./shop/list";
 
-import shopList from "./shop/list/item";
-import shopEditor from "./shop/editor";
-
-import spinner from "./spinner";
+import { spinner } from "./spinner";
 
 export default combineReducers({
     accountUser,

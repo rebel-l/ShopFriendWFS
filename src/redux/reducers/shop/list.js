@@ -1,12 +1,17 @@
+/* eslint-disable default-param-last */
+
+import {
+    SHOP_EDITOR_ITEM_ADD,
+    SHOP_EDITOR_ITEM_UPDATE,
+} from "../../types/shop/editor";
 import {
     SHOP_LIST_ITEM_ACTIVATE,
     SHOP_LIST_ITEM_DEACTIVATE,
     SHOP_LIST_ITEM_REMOVE,
-} from "../../../types/shop/list/item";
-import { SHOP_EDITOR_ITEM_ADD, SHOP_EDITOR_ITEM_UPDATE } from "../../../types/shop/editor";
-import NewList from "../../../../model/shop/list";
+} from "../../types/shop/list/item";
+import newList from "../../../model/shop/list";
 
-const initialState = NewList([]);
+const initialState = newList([]);
 
 /**
  * Takes care about the actions regarding the items in shopping list.
@@ -15,7 +20,7 @@ const initialState = NewList([]);
  * @param action
  * @returns {{items: []}}
  */
-export default function (state = initialState, action) {
+export function shopList (state = initialState, action) {
     const list = { ...state };
 
     switch (action.type) {
