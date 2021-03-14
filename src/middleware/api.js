@@ -1,10 +1,10 @@
+import { startSpinner, stopSpinner } from "../redux/actions/spinner";
+import { addNotification } from "../redux/actions/notification";
+import { API } from "../redux/types/api";
+
 import axios from "axios";
 
-import { addNotification } from "../redux/actions/notification";
 import { loggedIn } from "../redux/actions/account/user";
-import { startSpinner, stopSpinner } from "../redux/actions/spinner";
-
-import { API } from "../redux/types/api";
 import { newError } from "../model/notification";
 
 /**
@@ -12,7 +12,14 @@ import { newError } from "../model/notification";
  *
  * @type {string}
  */
-const keyService = "{service}",
+const
+
+    /**
+     * Placeholder for the service name.
+     *
+     * @type {string}
+     */
+    keyService = "{service}",
 
     /**
      * Base URL temporary from local environment.
@@ -21,56 +28,20 @@ const keyService = "{service}",
      *
      * @type {string}
      */
+    // eslint-disable-next-line sort-vars
     baseURL = `https://${keyService}.shopfriend.test`,
 
     /**
-     * The API middleware on which to act on any API action.
+     * Builds the URL based on the payload received.
      *
-     * @param dispatch
-     * @returns {function(*): function(*=): undefined}
+     * @param payload
+     * @returns {string}
      */
-    api = ({ dispatch }) => (next) => (action) => {
-        next(action);
-
-        if (action.type !== API) {
-            return;
-        }
-
-        dispatch(startSpinner());
-
-        const errs = validatePayload(action.payload);
-
-        if (errs.length > 0) {
-            dispatch(addNotification(newError("error parsing API payload")));
-
-            return;
-        }
-
-        const dataOrParams = [
-            "GET",
-            "DELETE",
-        ].includes(action.payload.method) ?
-            "params" :
-            "data";
-
-        axios.defaults.headers.common["Content-Type"] = "application/json;charset=UTF-8";
-
-        // TODO: somehow we need to deal with JWT TOKEN here
-
-        axios.request({
-            "url": getURL(action.payload),
-            "method": action.payload.method,
-            [dataOrParams]: action.payload.data,
-        }).then(({ data }) => {
-            dispatch(loggedIn(data));
-        }).
-            catch((error) => {
-                dispatch(addNotification(newError(error.message)));
-            }).
-            finally(() => {
-                dispatch(stopSpinner());
-            });
-    },
+    // eslint-disable-next-line sort-vars
+    getURL = (payload) => baseURL.replace(
+        keyService,
+        payload.service,
+    ) + payload.path,
 
     /**
      * Returns an empty array (valid) if the payload received has all mandatory fields set. Otherwise (invalid)
@@ -98,14 +69,55 @@ const keyService = "{service}",
     },
 
     /**
-     * Builds the URL based on the payload received.
+     * The API middleware on which to act on any API action.
      *
-     * @param payload
-     * @returns {string}
+     * @param dispatch
+     * @returns {function(*): function(*=): undefined}
      */
-    getURL = (payload) => baseURL.replace(
-        keyService,
-        payload.service,
-    ) + payload.path;
+    // eslint-disable-next-line sort-vars
+    api = ({ dispatch }) => (next) => (action) => {
+        next(action);
+
+        if (action.type !== API) {
+            return;
+        }
+
+        dispatch(startSpinner());
+
+        const dataOrParams = [
+                "GET",
+                "DELETE",
+            ].includes(action.payload.method) ?
+                "params" :
+                "data",
+            errorsEmpty = 0,
+            errs = validatePayload(action.payload);
+
+        if (errs.length > errorsEmpty) {
+            dispatch(addNotification(newError("error parsing API payload")));
+
+            return;
+        }
+
+        axios.defaults.headers.common["Content-Type"] = "application/json;charset=UTF-8";
+
+        // eslint-disable-next-line no-warning-comments
+        // TODO: somehow we need to deal with JWT TOKEN here
+
+        axios.request({
+            [dataOrParams]: action.payload.data,
+            "method": action.payload.method,
+            "url": getURL(action.payload),
+            // eslint-disable-next-line id-denylist
+        }).then(({ data }) => {
+            dispatch(loggedIn(data));
+        }).
+            catch((error) => {
+                dispatch(addNotification(newError(error.message)));
+            }).
+            finally(() => {
+                dispatch(stopSpinner());
+            });
+    };
 
 export default api;
