@@ -1,6 +1,6 @@
 import Editor from "./shop/Editor.jsx";
 import Facebook from "./account/login/Facebook.jsx";
-import List from "./shop/List";
+import List from "./shop/List.jsx";
 import Notification from "./Notification.jsx";
 import React from "react";
 import Spinner from "./Spinner.jsx";

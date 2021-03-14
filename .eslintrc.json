@@ -172,7 +172,13 @@
     "no-extend-native": "error",
     "no-extra-bind": "error",
     "no-extra-label": "error",
-    "no-extra-parens": "error",
+    "no-extra-parens": [
+      "error",
+      "all",
+      {
+        "ignoreJSX": "multi-line"
+      }
+    ],
     "no-floating-decimal": "error",
     "no-implicit-coercion": "error",
     "no-implicit-globals": "error",
@@ -348,7 +354,12 @@
     "react/jsx-sort-props": "warn",
     "react/jsx-space-before-closing": "error",
     "react/jsx-tag-spacing": "error",
-    "react/jsx-wrap-multilines": "error",
+    "react/jsx-wrap-multilines": [
+      "error",
+      {
+        "arrow": "parens-new-line"
+      }
+    ],
     "react/no-access-state-in-setstate": "error",
     "react/no-danger": "error",
     "react/no-did-mount-set-state": "error",
