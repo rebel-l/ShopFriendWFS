@@ -3,7 +3,7 @@ import {
     SHOP_LIST_ITEM_DEACTIVATE,
     SHOP_LIST_ITEM_EDIT,
     SHOP_LIST_ITEM_REMOVE,
-} from "../../../types/shop/list/item";
+} from "../../../types/shop/list";
 
 /**
  * Sets the item to edit on the redux store.

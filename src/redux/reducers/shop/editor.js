@@ -1,6 +1,6 @@
 /* eslint-disable default-param-last */
 
-import { SHOP_LIST_ITEM_EDIT } from "../../types/shop/list/item";
+import { SHOP_LIST_ITEM_EDIT } from "../../types/shop/list";
 
 const initialState = {};
 

@@ -1,13 +1,15 @@
-/**
- * Action to start spinner.
- *
- * @type {string}
- */
-export const SPINNER_START = "SPINNER_START";
+export const
 
-/**
- * Action to stop spinner.
- *
- * @type {string}
- */
-export const SPINNER_STOP = "SPINNER_STOP";
+    /**
+     * Action to start spinner.
+     *
+     * @type {string}
+     */
+    SPINNER_START = "SPINNER_START",
+
+    /**
+     * Action to stop spinner.
+     *
+     * @type {string}
+     */
+    SPINNER_STOP = "SPINNER_STOP";

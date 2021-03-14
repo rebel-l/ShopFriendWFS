@@ -8,7 +8,7 @@ import {
     SHOP_LIST_ITEM_ACTIVATE,
     SHOP_LIST_ITEM_DEACTIVATE,
     SHOP_LIST_ITEM_REMOVE,
-} from "../../types/shop/list/item";
+} from "../../types/shop/list";
 import newList from "../../../model/shop/list";
 
 const initialState = newList([]);
