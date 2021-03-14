@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 
-import Item from "./list/Item";
+import Item from "./list/Item.jsx";
 
 import PropTypes from "prop-types";
 import React from "react";

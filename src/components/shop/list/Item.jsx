@@ -1,22 +1,44 @@
-import React, { Component } from "react";
-import styles from "./Item.scss";
-
-import { connect } from "react-redux";
 import { activateItem, deactivateItem, editItem, removeItem } from "../../../redux/actions/shop/list/item";
 
-/**
- * CancelTimeout is the time the user can abort the deactivation of an item.
- *
- * @type {number}
- */
-const cancelTimeout = 2000, // Ms
+import React, { Component } from "react";
+import { connect } from "react-redux";
 
+import isEmpty from "../../../libs/object/empty";
+import PropTypes from "prop-types";
+
+import styles from "./Item.scss";
+
+const
     /**
-     * ProgressInterval is the interval to update the progress bar once the user deactivates an item.
+     * CancelTimeout is the time in milliseconds the user can abort the deactivation of an item.
      *
      * @type {number}
      */
-    progressInterval = 10; // Ms
+    cancelTimeout = 2000,
+
+    labelDelete = "delete",
+    labelEdit = "edit",
+
+    /**
+     * ProgressInterval is the interval in milliseconds to update the progress bar once the user deactivates an item.
+     *
+     * @type {number}
+     */
+    progressInterval = 10,
+
+    /**
+     * The max value (percentage) of the progress bar.
+     *
+     * @type {number}
+     */
+    progressMaxValue = 100,
+
+    /**
+     * The min value (percentage) of the progress label.
+     *
+     * @type {number}
+     */
+    progressMinValue = 0;
 
 /**
  * Item is the UI component for one item in the shopping list.
@@ -31,9 +53,9 @@ class Item extends Component {
 
         // Init state
         this.state = {
-            "progress": `${0}%`,
-            "active": true, // TODO: think of using it from item itself?
+            "active": this.item.active,
             "contextMenu": false,
+            "progress": `${progressMinValue}%`,
         };
 
         // Register event handler
@@ -41,6 +63,20 @@ class Item extends Component {
         this.handleDelete = this.handleDelete.bind(this);
         this.handleEdit = this.handleEdit.bind(this);
         this.handleSwipe = this.handleSwipe.bind(this);
+    }
+
+    shouldComponentUpdate (nextProps, nextState) {
+        const { active, contextMenu, progress } = this.state;
+
+        if (nextState.active !== active || nextState.contextMenu !== contextMenu || nextState.progress !== progress) {
+            return true;
+        }
+
+        if (isEmpty(nextProps.item) !== isEmpty(this.item)) {
+            return true;
+        }
+
+        return !isEmpty(nextProps.item) && !isEmpty(this.item) && nextProps.item.toString() !== this.item.toString();
     }
 
     /**
@@ -52,13 +88,13 @@ class Item extends Component {
      */
     handleActivate (id) {
         if (this.isActive() && this.timer === null) {
-            this.deactivate();
+            this.deactivate(id);
 
             // Delay re-rendering shopping list depending on user action
             const iterations = cancelTimeout / progressInterval,
-                step = 100 / iterations;
-            let counter = 0,
-                self = this;
+                self = this,
+                step = progressMaxValue / iterations;
+            let counter = 0;
 
             this.timer = setInterval(() => {
                 counter++;
@@ -83,6 +119,7 @@ class Item extends Component {
      * HandleEdit loads the item into the Editor for change by user.
      */
     handleEdit () {
+        // eslint-disable-next-line react/destructuring-assignment
         this.props.editItem(this.item);
         this.setState({ "contextMenu": false });
     }
@@ -93,6 +130,7 @@ class Item extends Component {
      * @param id {number|string}
      */
     handleDelete (id) {
+        // eslint-disable-next-line react/destructuring-assignment
         this.props.removeItem(id);
     }
 
@@ -100,7 +138,7 @@ class Item extends Component {
      * ResetTimer resets the timer and progress bar.
      */
     resetTimer () {
-        this.setProgress(0);
+        this.setProgress(progressMinValue);
         clearInterval(this.timer);
         this.timer = null;
     }
@@ -120,6 +158,7 @@ class Item extends Component {
      * @param id {number|string}
      */
     activate (id) {
+        // eslint-disable-next-line react/destructuring-assignment
         this.props.activateItem(id);
         this.setState({ "active": true });
         this.setState({ "contextMenu": false });
@@ -129,6 +168,7 @@ class Item extends Component {
      * Deactivate will deactivate the item.
      */
     deactivate () {
+        // We only want to deactivate the component here, as the user might cancel the deactivation
         this.setState({ "active": false });
         this.setState({ "contextMenu": false });
     }
@@ -139,7 +179,9 @@ class Item extends Component {
      * @returns {boolean}
      */
     isActive () {
-        return this.state.active;
+        const { active } = this.state;
+
+        return active;
     }
 
     /**
@@ -150,11 +192,13 @@ class Item extends Component {
     }
 
     render () {
-        let containerStyle = styles.progressContainer,
-            contentStyle = this.state.active ? styles.progress : styles.progressInactive,
-            buttonStyle = "";
+        const { active, contextMenu, progress } = this.state,
+            contentStyle = active ? styles.progress : styles.progressInactive;
 
-        if (this.state.contextMenu) {
+        let buttonStyle = "",
+            containerStyle = styles.progressContainer;
+
+        if (contextMenu) {
             buttonStyle = styles.contextMenu;
             containerStyle += ` ${styles.contextMenu}`;
         }
@@ -167,7 +211,7 @@ class Item extends Component {
                         onTouchMove={this.handleSwipe}
                     >
                         <div className={contentStyle}
-                            style={{ "width": this.state.progress }}
+                            style={{ "width": progress }}
                         >
                             {this.item.toString()}
                         </div>
@@ -175,12 +219,12 @@ class Item extends Component {
                     <button className={buttonStyle}
                         onClick={this.handleEdit}
                     >
-                        edit
+                        {labelEdit}
                     </button>
                     <button className={buttonStyle}
                         onClick={() => this.handleDelete(this.item.id)}
                     >
-                        delete
+                        {labelDelete}
                     </button>
                 </div>
             </div>
@@ -188,9 +232,16 @@ class Item extends Component {
     }
 }
 
+Item.propTypes = {
+    "activateItem": PropTypes.func.isRequired,
+    "editItem": PropTypes.func.isRequired,
+    "item": PropTypes.object.isRequired,
+    "removeItem": PropTypes.func.isRequired,
+};
+
 export default connect(null, {
-    removeItem,
-    editItem,
     activateItem,
     deactivateItem,
+    editItem,
+    removeItem,
 })(Item);
