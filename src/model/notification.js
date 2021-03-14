@@ -9,7 +9,7 @@ export const ERROR = "ERROR";
  */
 export function newError (message) {
     return {
-        "type": ERROR,
         message,
+        "type": ERROR,
     };
 }
