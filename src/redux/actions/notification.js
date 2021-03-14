@@ -7,13 +7,15 @@ import { NOTIFICATION_ADD, NOTIFICATION_DELETE } from "../types/notification";
  * @returns {{payload: *[], type: string}}
  */
 export function addNotification (message) {
-    if (Array.isArray(message) === false) {
-        message = [message];
+    let msg = message;
+
+    if (Array.isArray(msg) === false) {
+        msg = [msg];
     }
 
     return {
         "type": NOTIFICATION_ADD,
-        "payload": message,
+        "payload": msg,
     };
 }
 

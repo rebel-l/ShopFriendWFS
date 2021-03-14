@@ -8,7 +8,7 @@ import newItem from "./item";
  * @constructor
  * @throws error if item has no name
  */
-function NewItems (content) {
+function newItems (content) {
     const items = [],
         list = content.split(",");
 
@@ -26,4 +26,4 @@ function NewItems (content) {
     return items;
 }
 
-export default NewItems;
+export default newItems;

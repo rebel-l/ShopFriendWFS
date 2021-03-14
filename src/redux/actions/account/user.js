@@ -1,5 +1,5 @@
-import { API } from "../../types/api";
 import { ACCOUNT_USER_LOGGED_IN } from "../../types/account/user";
+import { API } from "../../types/api";
 
 /**
  * Triggers the XHR call to login with facebook.
