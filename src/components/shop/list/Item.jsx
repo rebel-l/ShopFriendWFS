@@ -9,6 +9,7 @@ import PropTypes from "prop-types";
 import styles from "./Item.scss";
 
 const
+
     /**
      * CancelTimeout is the time in milliseconds the user can abort the deactivation of an item.
      *
@@ -83,10 +84,10 @@ class Item extends Component {
      * HandleActivate deals with de-/ activating an item by user. It steers the progress bar until it times out or the
      * user cancels the deactivation.
      * Activation the item happens immediately.
-     *
-     * @param id {number|string}
      */
-    handleActivate (id) {
+    handleActivate () {
+        const id = this.item.id;
+
         if (this.isActive() && this.timer === null) {
             this.deactivate(id);
 
@@ -126,12 +127,10 @@ class Item extends Component {
 
     /**
      * HandleDelete removes the item from the shopping list.
-     *
-     * @param id {number|string}
      */
-    handleDelete (id) {
+    handleDelete () {
         // eslint-disable-next-line react/destructuring-assignment
-        this.props.removeItem(id);
+        this.props.removeItem(this.item.id);
     }
 
     /**
@@ -207,7 +206,7 @@ class Item extends Component {
             <div className={styles.item}>
                 <div className={styles.inner}>
                     <div className={containerStyle}
-                        onClick={() => this.handleActivate(this.item.id)}
+                        onClick={this.handleActivate}
                         onTouchMove={this.handleSwipe}
                     >
                         <div className={contentStyle}
@@ -222,7 +221,7 @@ class Item extends Component {
                         {labelEdit}
                     </button>
                     <button className={buttonStyle}
-                        onClick={() => this.handleDelete(this.item.id)}
+                        onClick={this.handleDelete}
                     >
                         {labelDelete}
                     </button>
