@@ -1,4 +1,4 @@
-import NewItem from "./item";
+import newItem from "./item";
 
 /**
  * Creates new list of items based on string.
@@ -9,17 +9,18 @@ import NewItem from "./item";
  * @throws error if item has no name
  */
 function NewItems (content) {
-    const data = content.split(","),
-        items = [];
+    const items = [],
+        list = content.split(",");
 
-    for (let i = 0; i < data.length; i++) {
-        const item = data[i].trim();
+    for (let i = 0; i < list.length; i++) {
+        const item = list[i].trim();
 
         if (item === "") {
-            continue; // Empty items are skipped
+            // Empty items are skipped
+            continue;
         }
 
-        items.push(NewItem(item));
+        items.push(newItem(item));
     }
 
     return items;

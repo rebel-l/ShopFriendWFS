@@ -17,7 +17,7 @@ let id = 0;
  * @constructor
  * @throws error if name is no identified
  */
-function NewItem (content) {
+function newItem (content) {
     const item = content.split(":");
 
     return {
@@ -64,4 +64,4 @@ function NewItem (content) {
     };
 }
 
-export default NewItem;
+export default newItem;

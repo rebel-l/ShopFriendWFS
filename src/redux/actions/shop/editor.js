@@ -1,6 +1,6 @@
 import { SHOP_EDITOR_ITEM_ADD, SHOP_EDITOR_ITEM_UPDATE } from "../../types/shop/editor";
 import NewItems from "../../../model/shop/items";
-import NewItem from "../../../model/shop/item";
+import newItem from "../../../model/shop/item";
 
 /**
  * Adds one or more items to the shopping list in store.
@@ -24,7 +24,7 @@ export function addItem (content) {
  */
 export function updateItem (id, content) {
     // TODO: only first item can be editable, if we get more items comma separated we should add them as new ones
-    const item = NewItem(content);
+    const item = newItem(content);
 
     item.id = id;
 
