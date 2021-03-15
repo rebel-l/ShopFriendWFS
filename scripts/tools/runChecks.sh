@@ -28,7 +28,18 @@ EXIT_CODE=$?
 if [[ ${EXIT_CODE} != 0 ]]
 then
     echo
-    echo -en "\E[40;31m\033[1mLinting failed with exit code: \033[0m" ${EXIT_CODE}
+    echo -en "\E[40;31m\033[1mLinting Javascript failed with exit code: \033[0m" ${EXIT_CODE}
+    echo
+    echo
+    exit ${EXIT_CODE}
+fi
+
+npm run lint-scss
+EXIT_CODE=$?
+if [[ ${EXIT_CODE} != 0 ]]
+then
+    echo
+    echo -en "\E[40;31m\033[1mLinting SCSS failed with exit code: \033[0m" ${EXIT_CODE}
     echo
     echo
     exit ${EXIT_CODE}

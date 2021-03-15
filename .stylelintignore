@@ -1,0 +1,12 @@
+**/*.html
+**/*.js
+**/*.jsx
+**/*.json
+**/*.sh
+
+backend
+container
+node_modules
+scripts
+src/assets
+vm
