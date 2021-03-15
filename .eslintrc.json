@@ -359,7 +359,6 @@
     "react/jsx-props-no-spreading": "error",
     "react/jsx-sort-default-props": "warn",
     "react/jsx-sort-props": "warn",
-    "react/jsx-space-before-closing": "error",
     "react/jsx-tag-spacing": "error",
     "react/jsx-wrap-multilines": [
       "error",
