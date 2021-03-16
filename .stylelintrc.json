@@ -33,7 +33,7 @@
     "scss/dollar-variable-no-missing-interpolation": true,
     "scss/double-slash-comment-empty-line-before": "always",
     "scss/comment-no-empty": true,
-    "scss/declaration-nested-properties": "always",
+    "scss/declaration-nested-properties": "never",
     "scss/declaration-nested-properties-no-divided-groups": true,
     "scss/dimension-no-non-numeric-values": true,
     "scss/function-color-relative": true,
@@ -45,7 +45,6 @@
     "scss/operator-no-newline-before": true,
     "scss/operator-no-unspaced": true,
     "scss/partial-no-import": true,
-    "scss/selector-nest-combinators": "never",
     "scss/selector-no-union-class-name": true,
     "scss/no-duplicate-dollar-variables": [
       true,
@@ -61,6 +60,13 @@
       }
     ],
     "scss/no-duplicate-mixins": true,
-    "scss/no-global-function-names": true
+    "scss/no-global-function-names": true,
+    "selector-class-pattern": [
+      "^[a-zA-Z0-9]+$",
+      {
+        "message":
+        "Selector should be written in camelCase without hyphens to be usable in JSX components (selector-class-pattern)"
+      }
+    ]
   }
 }
