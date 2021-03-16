@@ -1,28 +1,25 @@
 @import '../variables';
 
-
 .list {
-  border-top-width: $border-width-mobile;
-  border-bottom-width: $border-width-mobile;
-  border-top-style: solid;
   border-bottom-style: solid;
+  border-bottom-width: $border-width-mobile;
   border-color: #000;
-
+  border-top-style: solid;
+  border-top-width: $border-width-mobile;
   margin-top: 20px;
-
   width: $content-width-mobile;
 
   // tablet behaviour
   @media only screen and (min-width: $width-tablet) {
-    border-width: $border-width-tablet;
     border-style: solid;
+    border-width: $border-width-tablet;
     width: $content-width-tablet;
   }
 
   // desktop behaviour
   @media only screen and (min-width: $width-desktop) {
-    border-width: $border-width-tablet;
     border-style: solid;
+    border-width: $border-width-tablet;
     width: $content-width-desktop;
   }
 }

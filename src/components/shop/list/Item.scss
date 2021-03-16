@@ -1,31 +1,29 @@
 @import '../../variables';
 
 .item {
-  border-color: #000;
-  border-top-width: $border-width-mobile;
-  border-bottom-width: $border-width-mobile;
-  border-top-style: solid;
   border-bottom-style: solid;
+  border-bottom-width: $border-width-mobile;
   border-collapse: collapse;
-
-  width: 100%;
+  border-color: #000;
+  border-top-style: solid;
+  border-top-width: $border-width-mobile;
   height: 25px;
+  width: 100%;
 }
 
 .inner {
   border-collapse: collapse;
-
-  width: 100%;
   height: 100%;
+  width: 100%;
 
   button {
-    width: 15%;
     display: none;
+    width: 15%;
 
     // tablet and above
-    @media only screen and (min-width: $width-tablet){
-      width: 9%;
+    @media only screen and (min-width: $width-tablet) {
       display: inline;
+      width: 9%;
     }
   }
 
@@ -36,20 +34,17 @@
 
 .progressContainer {
   border-collapse: collapse;
-
-  width: 100%;
-  height: 100%;
-
   float: left;
+  height: 100%;
+  width: 100%;
 
   // tablet and above
-  @media only screen and (min-width: $width-tablet){
+  @media only screen and (min-width: $width-tablet) {
     width: 80%;
   }
 
   div {
     border-collapse: collapse;
-
     height: 100%;
   }
 }
@@ -59,8 +54,8 @@
 }
 
 .progress {
-  color: red;
   background-color: #0e0e0e;
+  color: red;
 }
 
 .progressInactive {

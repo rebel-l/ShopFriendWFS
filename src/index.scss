@@ -2,14 +2,14 @@
 @import './components/variables';
 
 body {
+
   // tablet and above
-  @media only screen and (min-width: $width-tablet){
+  @media only screen and (min-width: $width-tablet) {
     margin: 20px;
   }
 }
 
 button {
   padding: 0;
-
   text-align: center;
 }
