@@ -11,14 +11,14 @@ class User extends Component {
     shouldComponentUpdate (nextProps) {
         const { user } = this.props;
 
-        return user.id !== nextProps.user.id;
+        return user.ID !== nextProps.user.ID;
     }
 
     render () {
         const { user } = this.props;
 
         // eslint-disable-next-line one-var
-        const greetings = `Hello ${user.first_name}`;
+        const greetings = `Hello ${user.FirstName}`;
 
         return (
             <div>
