@@ -11,7 +11,7 @@ class User extends Component {
     shouldComponentUpdate (nextProps) {
         const { user } = this.props;
 
-        return user.ID !== nextProps.user.ID;
+        return user.FirstName !== nextProps.user.FirstName;
     }
 
     render () {
