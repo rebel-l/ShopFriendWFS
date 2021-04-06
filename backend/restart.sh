@@ -5,7 +5,14 @@
 for i in "${DEPENDENCIES[@]}";
 do
   cd $i
-  ./scripts/tools/restartService.sh
+
+  if [ -e ./scripts/tools/restartAll.sh ]
+  then
+    ./scripts/tools/restartAll.sh
+  else
+    ./scripts/tools/restartService.sh
+  fi
+
   cd ..
 done
 
