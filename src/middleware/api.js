@@ -4,7 +4,6 @@ import { API } from "../redux/types/api";
 
 import axios from "axios";
 
-import { loggedIn } from "../redux/actions/account/user";
 import { newError } from "../model/notification";
 
 /**
@@ -110,7 +109,7 @@ const
             "url": getURL(action.payload),
             // eslint-disable-next-line id-denylist
         }).then(({ data }) => {
-            dispatch(loggedIn(data));
+            dispatch(action.payload.dispatch(data));
         }).
             catch((error) => {
                 dispatch(addNotification(newError(error.message)));
