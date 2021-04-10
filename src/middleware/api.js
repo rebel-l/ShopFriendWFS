@@ -6,6 +6,11 @@ import axios from "axios";
 
 import { newError } from "../model/notification";
 
+import store from "store2";
+
+axios.defaults.headers.common.Accept = "application/json;charset=UTF-8";
+axios.defaults.headers.common["Content-Type"] = "application/json;charset=UTF-8";
+
 /**
  * Placeholder where to replace service name.
  *
@@ -93,15 +98,21 @@ const
             errs = validatePayload(action.payload);
 
         if (errs.length > errorsEmpty) {
+            dispatch(stopSpinner());
             dispatch(addNotification(newError("error parsing API payload")));
 
             return;
         }
 
-        axios.defaults.headers.common["Content-Type"] = "application/json;charset=UTF-8";
+        axios.interceptors.request.use((config) => {
+            const accessToken = store.session.get("accessToken"); // TODO: token manager
 
-        // eslint-disable-next-line no-warning-comments
-        // TODO: somehow we need to deal with JWT TOKEN here
+            if (accessToken !== "") {
+                config.headers.Authorization = `Bearer ${accessToken}`;
+            }
+
+            return config;
+        }, (error) => Promise.reject(error));
 
         axios.request({
             [dataOrParams]: action.payload.data,

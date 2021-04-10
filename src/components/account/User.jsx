@@ -1,17 +1,32 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 
+import Facebook from "./login/Facebook.jsx";
 import isEmpty from "../../libs/object/empty";
+import { logout } from "../../redux/actions/account/user";
 
 import PropTypes from "prop-types";
 
-const mapStateToProps = (state) => ({ "user": state.accountUser });
+const
+    label = "logout",
+    mapStateToProps = (state) => ({ "user": state.accountUser });
 
 class User extends Component {
+    constructor (props) {
+        super(props);
+
+        this.handleLogout = this.handleLogout.bind(this);
+    }
+
     shouldComponentUpdate (nextProps) {
         const { user } = this.props;
 
         return user.FirstName !== nextProps.user.FirstName;
+    }
+
+    handleLogout () {
+        // eslint-disable-next-line react/destructuring-assignment
+        this.props.logout();
     }
 
     render () {
@@ -24,16 +39,26 @@ class User extends Component {
             <div>
                 {
                     isEmpty(user) === false ?
-                        <h1>
-                            {greetings}
-                        </h1> :
-                        ""
+                        <div>
+                            <h1>
+                                {greetings}
+                            </h1>
+                            <button onClick={this.handleLogout}>
+                                {label}
+                            </button>
+                        </div> :
+                        <Facebook />
                 }
             </div>
         );
     }
 }
 
-User.propTypes = { "user": PropTypes.object.isRequired };
+User.propTypes = {
+    "logout": PropTypes.func.isRequired,
+    "user": PropTypes.object.isRequired,
+};
 
-export default connect(mapStateToProps)(User);
+export default connect(mapStateToProps, {
+    logout,
+})(User);

@@ -2,7 +2,10 @@ import { ACCOUNT_USER_LOGGED_IN } from "../../types/account/user";
 import { API } from "../../types/api";
 import store from "store2";
 
-const pathFacebookLogin = "/public/facebook/confirmation";
+const
+    pathFacebookLogin = "/public/facebook/confirmation",
+    pathLogout = "/restricted/logout",
+    service = "auth";
 
 /**
  * Triggered as soon as the user was logged in successfully.
@@ -33,10 +36,27 @@ export function loginFacebook (accessToken) {
         "type": API,
         "payload": {
             "method": "PUT",
-            "service": "auth",
+            service,
             "path": pathFacebookLogin,
             "data": { "AccessToken": accessToken },
             "dispatch": loggedIn,
+        },
+    };
+}
+
+export function loggedOut () {
+    console.log("logged out");
+}
+
+export function logout () {
+    return {
+        "type": API,
+        "payload": {
+            "method": "POST",
+            service,
+            "path": pathLogout,
+            // TODO: maybe we should send also refresh token to delete it in backend
+            "dispatch": loggedOut,
         },
     };
 }
