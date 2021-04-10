@@ -2,6 +2,8 @@ import { ACCOUNT_USER_LOGGED_IN } from "../../types/account/user";
 import { API } from "../../types/api";
 import store from "store2";
 
+const pathFacebookLogin = "/public/facebook/confirmation";
+
 /**
  * Triggered as soon as the user was logged in successfully.
  *
@@ -32,7 +34,7 @@ export function loginFacebook (accessToken) {
         "payload": {
             "method": "PUT",
             "service": "auth",
-            "path": "/public/facebook/login",
+            "path": pathFacebookLogin,
             "data": { "AccessToken": accessToken },
             "dispatch": loggedIn,
         },
