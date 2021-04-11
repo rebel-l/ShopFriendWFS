@@ -107,7 +107,7 @@ const
         axios.interceptors.request.use((config) => {
             const accessToken = store.session.get("accessToken"); // TODO: token manager
 
-            if (accessToken !== "") {
+            if (accessToken !== null && accessToken !== "") {
                 config.headers.Authorization = `Bearer ${accessToken}`;
             }
 
