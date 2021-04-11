@@ -45,14 +45,14 @@ export function loginFacebook (accessToken) {
 }
 
 export function loggedOut () {
-    console.log("logged out");
+    console.log("logged out"); // TODO: implement action LOGGED_OUT
 }
 
 export function logout () {
     return {
         "type": API,
         "payload": {
-            "method": "POST",
+            "method": "DELETE",
             service,
             "path": pathLogout,
             // TODO: maybe we should send also refresh token to delete it in backend
