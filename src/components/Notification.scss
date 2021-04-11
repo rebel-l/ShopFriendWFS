@@ -1,0 +1,39 @@
+$width: 300px;
+$border-width: 2px;
+$line-width: $width - (2 * $border-width);
+
+.notification {
+  border-style: solid;
+  border-width: $border-width;
+  width: $width;
+
+  div {
+    margin: 5px;
+    width: $line-width;
+  }
+
+  button {
+    height: 20px;
+    margin-bottom: 5px;
+    margin-right: 5px;
+
+    /*
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    */
+
+    margin-top: 20px;
+    width: 50px;
+
+    // float: right;
+  }
+}
+
+.last {
+  text-align: right;
+}
+
+.error {
+  color: #a00;
+}

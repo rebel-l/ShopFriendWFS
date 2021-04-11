@@ -1,0 +1,13 @@
+// screen sizes
+$width-desktop: 1152px;
+$width-tablet: 768px;
+
+// content
+$content-width-desktop: 50%;
+$content-width-tablet: 80%;
+$content-width-mobile: 100%;
+
+// border
+$border-width-mobile: 1px;
+$border-width-tablet: 3px;
+$border-width-desktop: $content-width-tablet;

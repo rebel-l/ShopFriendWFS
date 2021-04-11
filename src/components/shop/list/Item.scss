@@ -1,0 +1,66 @@
+@import '../../variables';
+
+.item {
+  border-bottom-style: solid;
+  border-bottom-width: $border-width-mobile;
+  border-collapse: collapse;
+  border-color: #000;
+  border-top-style: solid;
+  border-top-width: $border-width-mobile;
+  height: 25px;
+  width: 100%;
+}
+
+.inner {
+  border-collapse: collapse;
+  height: 100%;
+  width: 100%;
+
+  button {
+    display: none;
+    width: 15%;
+
+    // tablet and above
+    @media only screen and (min-width: $width-tablet) {
+      display: inline;
+      width: 9%;
+    }
+  }
+
+  /* stylelint-disable-next-line selector-no-qualifying-type */
+  button.contextMenu {
+    display: inline;
+  }
+}
+
+.progressContainer {
+  border-collapse: collapse;
+  float: left;
+  height: 100%;
+  width: 100%;
+
+  // tablet and above
+  @media only screen and (min-width: $width-tablet) {
+    width: 80%;
+  }
+
+  div {
+    border-collapse: collapse;
+    height: 100%;
+  }
+}
+
+.progressContainer.contextMenu {
+  width: 70%;
+}
+
+.progress {
+  background-color: #0e0e0e;
+  color: #f00;
+}
+
+.progressInactive {
+  background-color: #0e0e0e;
+  color: #f00;
+  text-decoration: line-through #00f;
+}
